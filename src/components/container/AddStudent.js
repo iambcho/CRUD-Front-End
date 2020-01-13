@@ -7,7 +7,7 @@ import './../../App.css';
 
 //  turn into function that takes in props
 //  and only renders
-class AddStudent extends Component{
+class AddStudent extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -16,12 +16,22 @@ class AddStudent extends Component{
         const lastName = this.getLastName.value;
         const email = this.getEmail.value;
         const gpa = this.getGPA.value;
+
+        const imageURL = "";
+        const createdAt = "";
+        const updatedAt = "";
+        const campusId = 0;
+
         const data = {
             id,
             firstName,
             lastName,
             email,
-            gpa
+            gpa,
+            imageURL,
+            createdAt,
+            updatedAt,
+            campusId
         }
         // console.log(data);
         this.props.dispatch({

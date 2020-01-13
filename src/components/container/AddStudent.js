@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Link, Route} from 'react-router-dom';
 
+
 //  turn into function that takes in props
 //  and only renders
 class AddStudent extends Component{
@@ -46,7 +47,7 @@ class AddStudent extends Component{
                     <br/>
 
                     GPA: 
-                    <input type="number" required ref={(input)=>this.getGPA = input} placeholder="3.8"/>
+                    <input type="number" min="0" max="4" step="0.1" required ref={(input)=>this.getGPA = input} placeholder="3.8"/>
                     <br/>
 
                     <input type="submit" value="Add Student"/>

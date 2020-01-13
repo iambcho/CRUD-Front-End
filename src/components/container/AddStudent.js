@@ -1,5 +1,7 @@
 import React, { Component } from "react";
 import {Link, Route} from 'react-router-dom';
+import { connect } from 'react-redux';
+import './../../App.css';
 
 
 //  turn into function that takes in props
@@ -19,10 +21,10 @@ class AddStudent extends Component{
             email,
             gpa
         }
-
-        this.props.dispatch({
-            type:'ADD_STUDENT',
-            data});
+        console.log(data);
+        // this.props.dispatch({
+        //     type:'ADD_STUDENT',
+        //     data});
         this.getFirstName.value = '';
         this.getLastName.value = '';
         this.getEmail.value = '';
@@ -31,29 +33,40 @@ class AddStudent extends Component{
 
     render() {
         return(
-            <div>
-                <h1>Add Student</h1>
-                <form onSubmit={this.handleSubmit}>
-                    First Name:
-                    <input type="text" required ref={(input)=>this.getFirstName = input} placeholder="First Name"/>
-                    <br/>
+            <div className="container">
+                <div className = "nav-bar">
+                    <ul>
+                        <li><Link to="/">Home</Link></li>
+                        <li><Link to="/students">All Students</Link></li>
+                    </ul>
+                </div>
 
-                    LastName: 
-                    <input type="text" required ref={(input)=>this.getLastName = input} placeholder="Last Name"/>
-                    <br/>
+                <div className="App">
+                    <header className="App-header">
+                        <h1>Add Student</h1>
+                        <form onSubmit={this.handleSubmit}>
+                            First Name:
+                            <input type="text" required ref={(input)=>this.getFirstName = input} placeholder="First Name"/>
+                            <br/>
 
-                    Email:
-                    <input type="email" required ref={(input)=>this.getEmail = input} placeholder="Email"/>
-                    <br/>
+                            LastName: 
+                            <input type="text" required ref={(input)=>this.getLastName = input} placeholder="Last Name"/>
+                            <br/>
 
-                    GPA: 
-                    <input type="number" min="0" max="4" step="0.1" required ref={(input)=>this.getGPA = input} placeholder="3.8"/>
-                    <br/>
+                            Email:
+                            <input type="email" required ref={(input)=>this.getEmail = input} placeholder="Email"/>
+                            <br/>
 
-                    <input type="submit" value="Add Student"/>
+                            GPA: 
+                            <input type="number" min="0" max="4" step="0.1" required ref={(input)=>this.getGPA = input} placeholder="3.8"/>
+                            <br/>
 
-                    <button onClick="">Cancel</button>
-                </form>
+                            <input type="submit" value="Add Student"/>
+
+                            <button><Link to ="/students">Cancel</Link></button>
+                        </form>
+                    </header>
+                </div>
             </div>
         );
     }

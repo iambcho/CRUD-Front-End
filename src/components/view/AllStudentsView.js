@@ -36,7 +36,7 @@ const AllStudentsView = (props) => {
 
             <br/>
 
-            <Link to="/add_students">Add Student</Link>
+            <button><Link to="/add_students">Add Student</Link></button>
             
             <br/>
 

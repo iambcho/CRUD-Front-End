@@ -78,3 +78,45 @@ li {
   height: 75px;
   background-color: #667292;
 }
+
+/* label, input, button {
+  font-size: inherit;
+  padding: 0.3em 0.4em;
+  margin: 0.1em 0.2em;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border: 1px solid #f90;
+  background-color: #fff;
+} */
+
+input, button {
+  margin-right: 0;
+  border-radius: 0.6em ;
+
+  font-size: initial;
+  padding: 0.3em 0.4em;
+  margin: 0.1em 0.2em;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+  border: 1px solid #f90;
+  background-color: #fff;
+}
+input:focus {
+  outline: none;
+  background-color: #ffa;
+  background-color: rgba(255,255,210,0.5);
+}
+
+/* CSS to handle  up and down arrows for number type inputs */
+input::-webkit-outer-spin-button.studentID,
+input::-webkit-inner-spin-button.studentID {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type=number].studentID {
+    -moz-appearance:textfield; /* Firefox */
+}

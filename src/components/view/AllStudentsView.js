@@ -17,7 +17,7 @@ const AllStudentsView = (props) => {
     // }
 
     
-
+    //onClick
     return (
     <div className="container">
         <div className = "nav-bar">
@@ -26,6 +26,7 @@ const AllStudentsView = (props) => {
                     <li><Link to="/students">All Students</Link></li>
                 </ul>
             </div>
+            
     <div className="App">
         
         <header className="App-header">
@@ -35,8 +36,11 @@ const AllStudentsView = (props) => {
 
             <br/>
 
-            <button>Add Student</button>
+            <Link to="/add_students">Add Student</Link>
+            
             <br/>
+
+           
             
             {
                 (students.length < 1)

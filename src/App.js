@@ -9,14 +9,15 @@ import AppView from "./AppView";
 // Additional Redux store imports;
 import { connect } from "react-redux";
 import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
+import AddStudent from './components/container/AddStudent';
 
 class AppContainer extends Component {
-  // constructor() {
-  //   super();
-  //   this.state = {
-  //     amount: 0
-  //   }
-  // }
+  constructor() {
+    super();
+    this.state = {
+      amount: 0
+    }
+  }
 
   // componentDidMount() {
   //   this.props.fetchAllStudents();
@@ -38,6 +39,7 @@ class AppContainer extends Component {
 
     const AppViewComponent = () => <AppView />
     const AllStudentsComponent = () => <AllStudents />
+    const AddStudentComponent = () => <AddStudent/>
     // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
     return (
       <div>
@@ -49,6 +51,7 @@ class AppContainer extends Component {
             <div className="App-header">
                 <Route exact path="/" render={AppViewComponent}/>
                 <Route exact path="/students" render={AllStudentsComponent}/>
+                <Route exact path="/add_students" render={AddStudentComponent}/>
               </div>
           </div>
           </Switch>

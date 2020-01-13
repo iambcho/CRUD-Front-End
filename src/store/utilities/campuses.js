@@ -97,4 +97,4 @@ function allCampusesReducer(state = [], action){
     }
 } 
 
-return state;
+export default allCampusesReducer;

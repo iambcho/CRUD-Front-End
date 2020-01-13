@@ -19,14 +19,20 @@ const AllStudentsView = (props) => {
     
 
     return (
+    <div className="container">
+        <div className = "nav-bar">
+                <ul>
+                    <li><Link to="/">Home</Link></li>
+                    <li><Link to="/students">All Students</Link></li>
+                </ul>
+            </div>
     <div className="App">
+        
         <header className="App-header">
+            
+            
             <h1>All Students</h1>
 
-            <Link to="/">Home</Link>
-            <br/>
-            <Link to="/students">All Students</Link>
-            <br/>
             <br/>
 
             <button>Add Student</button>
@@ -49,6 +55,7 @@ const AllStudentsView = (props) => {
             } 
           
         </header>
+    </div>
     </div>
     )
 }

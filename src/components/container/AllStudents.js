@@ -34,17 +34,6 @@ import { connect } from "react-redux";
 import { fetchStudentsThunk } from "./../../store/utilities/students";
 
 
-// const AllStudents = (props) => {
-//     const {students, removeStudent, addStudent } = props;
-
-//     return (
-//         <AllStudentsView students={students} removeStudent={removeStudent} addStudent={addStudent} />
-//     )
-// }
-
-// export default AllStudents;
-
-
 class AllStudents extends Component {
     componentDidMount() {
         this.props.fetchAllStudents();
@@ -57,8 +46,7 @@ class AllStudents extends Component {
 
       render() {
 
-        // const AppViewComponent = () => <AppView />
-        // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
+        
         return (
               
             <AllStudentsView students={this.props.students} />
@@ -82,8 +70,6 @@ const mapState = (state) => {
   const mapDispatch = (dispatch) => {
     return {
       fetchAllStudents: () => dispatch(fetchStudentsThunk()),
-    //   removeStudent: (id) => dispatch(removeStudentThunk(id)),
-    //   addStudent: (student) => dispatch(addStudentThunk(student))
     }
   }
   

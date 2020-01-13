@@ -36,3 +36,20 @@
     transform: rotate(360deg);
   }
 }
+
+.all-students-container {
+  display: flex;
+}
+
+.all-students-box {
+  padding: 20px;
+  margin: 10px;
+  background-color: white;
+  
+}
+
+.all-students-box p {
+  color: black;
+  font-size: small;
+  
+}

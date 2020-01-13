@@ -3,6 +3,7 @@ import './App.css';
 import AllStudents from "./components/container/AllStudents";
 import AddStudent from './components/container/AddStudent';
 import SingleStudent from './components/container/SingleStudent';
+import EditStudent from './components/container/EditStudent';
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -10,17 +11,17 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AppView from "./AppView";
 
 // Additional Redux store imports;
-import { connect } from "react-redux";
-import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
+// import { connect } from "react-redux";
+// import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
 
 
 class AppContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      amount: 0
-    }
-  }
+  // constructor() {
+  //   super();
+  //    this.state = {
+  //      amount: 0
+  //    }
+  // }
 
   // componentDidMount() {
   //   this.props.fetchAllStudents();
@@ -44,6 +45,7 @@ class AppContainer extends Component {
     const AllStudentsComponent = () => <AllStudents />
     const AddStudentComponent = () => <AddStudent/>
     const SingleStudentComponent = () => <SingleStudent/>
+    const EditStudentComponent = () => <EditStudent/>
     // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
     return (
       <div>
@@ -57,6 +59,7 @@ class AppContainer extends Component {
                 <Route exact path="/students" render={AllStudentsComponent}/>
                 <Route exact path="/add_students" render={AddStudentComponent}/>
                 <Route exact path="/single_student" render={SingleStudentComponent}/>
+                <Route exact path="/edit_student" render={EditStudentComponent}/>
               </div>
           </div>
           </Switch>

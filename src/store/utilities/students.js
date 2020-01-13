@@ -2,6 +2,7 @@
 const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
+const EDIT_STUDENT = "EDIT_STUDENT";
 // const CURR_STUDENT = "CURR_STUDENT";
 
 // ACTION CREATOR;
@@ -22,6 +23,13 @@ const removeStudent = (id) => {
 const addStudent = (student) => {
     return {
         type: ADD_STUDENT,
+        payload: student
+    }
+}
+
+const editStudent = (student) => {
+    return {
+        type: EDIT_STUDENT,
         payload: student
     }
 }
@@ -111,6 +119,11 @@ export const addStudentThunk = (student) => (dispatch) => {
 //     dispatch(resolvedActionObject);
 // }
 
+export const editStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = editStudent(student); 
+    dispatch(resolvedActionObject);
+}
+
 // REDUCER FUNCTION;
 export default (state = [], action) => {
     switch (action.type) {
@@ -122,6 +135,18 @@ export default (state = [], action) => {
             return [...state, action.payload]
         // case CURR_STUDENT:
         //     return action.payload;
+        case EDIT_STUDENT:
+            return state.map((student) => {
+            if (student.id === action.id) {
+            return {
+            ...student,
+            firstName: action.payload.newFirstName,
+            lastName: action.payload.newLastName,
+            gpa: action.payload.newGPA,
+            imageUrl: action.payload.newImage
+            }
+            } else return student;
+            })
         default:
             return state;
     }

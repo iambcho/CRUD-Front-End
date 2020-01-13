@@ -40,7 +40,7 @@ class AppContainer extends Component {
     const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
     return (
       <div>
-        {/* <AppView /> */}
+   
 
         <Router>
         <div className="App">
@@ -52,7 +52,7 @@ class AppContainer extends Component {
 
         </Router>
     
-        {/* <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/> */}
+      
       </div>
       )
   }

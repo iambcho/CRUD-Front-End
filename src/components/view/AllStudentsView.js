@@ -46,16 +46,7 @@ const AllStudentsView = (props) => {
                     }
                 </div>
             } 
-            {/* <div className="all-students-container">           
-                {students.map(student => 
-                    <div className = "all-students-box">
-                        <img src={student.imageUrl} width="100" height="100" onClick={() => addStudent(studentToAdd)}></img>
-
-                        <p>{student.firstName} {student.lastName}</p>
-                        <p>Campus Name</p>
-                    </div>)
-                }
-            </div> */}
+          
         </header>
     </div>
     )

@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import {Link, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
+// import { addCampusThunk } from "../../store/utilities/campuses";
 import './../../App.css';
 
 class AddCampus extends CompositionEvent {

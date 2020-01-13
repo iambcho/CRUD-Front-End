@@ -23,7 +23,7 @@ class AddStudent extends Component{
             email,
             gpa
         }
-        console.log(data);
+        // console.log(data);
         this.props.dispatch({
             type:'ADD_STUDENT',
             data});

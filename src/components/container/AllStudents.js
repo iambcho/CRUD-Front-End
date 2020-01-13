@@ -30,15 +30,61 @@ import React, { Component } from 'react';
 // Import view;
 import AllStudentsView from "./../view/AllStudentsView";
 
+import { connect } from "react-redux";
+import { fetchStudentsThunk } from "./../../store/utilities/students";
 
 
+// const AllStudents = (props) => {
+//     const {students, removeStudent, addStudent } = props;
 
-const AllStudents = (props) => {
-    const {students, removeStudent, addStudent } = props;
+//     return (
+//         <AllStudentsView students={students} removeStudent={removeStudent} addStudent={addStudent} />
+//     )
+// }
 
-    return (
-        <AllStudentsView students={students} removeStudent={removeStudent} addStudent={addStudent} />
-    )
+// export default AllStudents;
+
+
+class AllStudents extends Component {
+    componentDidMount() {
+        this.props.fetchAllStudents();
+      }
+    
+      handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+      }
+
+
+      render() {
+
+        // const AppViewComponent = () => <AppView />
+        // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
+        return (
+              
+            <AllStudentsView students={this.props.students} />
+        
+            )
+      }
 }
 
-export default AllStudents;
+// Declaration for mapStateToProps;
+// The keys in this returned object will be on your component's `props` object;
+// The values of these keys reflect the value of the piece of state in your Redux store;
+const mapState = (state) => {
+    return {
+      students: state.students
+    }
+  }
+  
+  // Declaration for mapDispatchToProps;
+  // The keys in this returned object will be on your component's `props` object as well;
+  // The values of these keys are anonymous functions that will dispatch imported action creators or thunks so that a component can communicate with the appropriate reducer function(s);
+  const mapDispatch = (dispatch) => {
+    return {
+      fetchAllStudents: () => dispatch(fetchStudentsThunk()),
+    //   removeStudent: (id) => dispatch(removeStudentThunk(id)),
+    //   addStudent: (student) => dispatch(addStudentThunk(student))
+    }
+  }
+  
+  export default connect(mapState, mapDispatch)(AllStudents);

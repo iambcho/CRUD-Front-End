@@ -31,7 +31,9 @@ import React, { Component } from 'react';
 import AllStudentsView from "./../view/AllStudentsView";
 
 import { connect } from "react-redux";
-import { fetchStudentsThunk } from "./../../store/utilities/students";
+import { fetchStudentsThunk} from "./../../store/utilities/students";
+import {  currStudentThunk } from "./../../store/utilities/student";
+
 
 
 class AllStudents extends Component {
@@ -43,13 +45,19 @@ class AllStudents extends Component {
         this.setState({ [event.target.name]: event.target.value })
       }
 
+    //   onClickStudent = (event) => {
+    //       return (
+            
+    //       )
+        
+    //   }
 
       render() {
 
         
         return (
               
-            <AllStudentsView students={this.props.students} />
+            <AllStudentsView students = {this.props.students} student = {this.props.student} getCurrentStudent= {this.props.getCurrentStudent}/>
         
             )
       }
@@ -60,7 +68,8 @@ class AllStudents extends Component {
 // The values of these keys reflect the value of the piece of state in your Redux store;
 const mapState = (state) => {
     return {
-      students: state.students
+      students: state.students,
+      currStudent: state.student
     }
   }
   
@@ -70,6 +79,8 @@ const mapState = (state) => {
   const mapDispatch = (dispatch) => {
     return {
       fetchAllStudents: () => dispatch(fetchStudentsThunk()),
+      getCurrentStudent: (student) => dispatch(currStudentThunk(student))
+
     }
   }
   

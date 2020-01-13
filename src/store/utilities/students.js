@@ -2,6 +2,7 @@
 const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
+// const CURR_STUDENT = "CURR_STUDENT";
 
 // ACTION CREATOR;
 const fetchStudents = (students) => {
@@ -24,6 +25,13 @@ const addStudent = (student) => {
         payload: student
     }
 }
+
+// const currStudent = (student) => {
+//     return {
+//         type: CURR_STUDENT,
+//         payload: student
+//     }
+// }
 
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
@@ -98,6 +106,11 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
+// export const currStudentThunk = (student) => (dispatch) => {
+//     let resolvedActionObject = currStudent(student);
+//     dispatch(resolvedActionObject);
+// }
+
 // REDUCER FUNCTION;
 export default (state = [], action) => {
     switch (action.type) {
@@ -107,7 +120,11 @@ export default (state = [], action) => {
             return state.filter(student => student.id !== action.payload);
         case ADD_STUDENT:
             return [...state, action.payload]
+        // case CURR_STUDENT:
+        //     return action.payload;
         default:
             return state;
     }
 }
+
+

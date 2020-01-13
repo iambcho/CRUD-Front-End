@@ -1,23 +1,17 @@
 import React from "react";
 import {Link, Route} from 'react-router-dom';
+import { currStudentThunk } from "../../store/utilities/student";
 
 const AllStudentsView = (props) => {
-    const {students} = props;
+    const {students, student, getCurrentStudent} = props;
 
-    // const studentToAdd = {
-    //     "id": 2,
-    //     "firstName": "bob",
-    //     "lastName": "jones",
-    //     "email": "bobbyboy1234@yahoo.com",
-    //     "imageUrl": "https://i.imgur.com/GuAB8OE.jpg",
-    //     "gpa": 3.7,
-    //     "createdAt": "2018-12-05T23:02:45.270Z",
-    //     "updatedAt": "2019-06-14T00:15:35.429Z",
-    //     "campusId": 1
+    console.log(student);
+    // onClickStudent = (event) => {
+    //     return (
+    //         event.target.value.id;
+    //     )
     // }
-
     
-    //onClick
     return (
     <div className="container">
         <div className = "nav-bar">
@@ -47,13 +41,14 @@ const AllStudentsView = (props) => {
                 ? <div> <p>There are no students</p> </div> 
                 : <div className="all-students-container">           
                     {students.map(student => 
-                        <div className = "all-students-box">
+                    
+                        <Link to="/single_student" ><div className = "all-students-box" onClick={() => getCurrentStudent(student)}>
                             {/* <img src={student.imageUrl} width="100" height="100" onClick={() => addStudent(studentToAdd)}></img> */}
                             <img src={student.imageUrl} width="100" height="100"></img>
 
                             <p>{student.firstName} {student.lastName}</p>
                             <p>Campus Name</p>
-                        </div>)
+                        </div></Link>)
                     }
                 </div>
             } 

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import './App.css';
 import AllStudents from "./components/container/AllStudents";
+import AddStudent from './components/container/AddStudent';
+import SingleStudent from './components/container/SingleStudent';
+
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
 // Import view;
@@ -9,7 +12,7 @@ import AppView from "./AppView";
 // Additional Redux store imports;
 import { connect } from "react-redux";
 import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
-import AddStudent from './components/container/AddStudent';
+
 
 class AppContainer extends Component {
   constructor() {
@@ -40,6 +43,7 @@ class AppContainer extends Component {
     const AppViewComponent = () => <AppView />
     const AllStudentsComponent = () => <AllStudents />
     const AddStudentComponent = () => <AddStudent/>
+    const SingleStudentComponent = () => <SingleStudent/>
     // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
     return (
       <div>
@@ -52,6 +56,7 @@ class AppContainer extends Component {
                 <Route exact path="/" render={AppViewComponent}/>
                 <Route exact path="/students" render={AllStudentsComponent}/>
                 <Route exact path="/add_students" render={AddStudentComponent}/>
+                <Route exact path="/single_student" render={SingleStudentComponent}/>
               </div>
           </div>
           </Switch>

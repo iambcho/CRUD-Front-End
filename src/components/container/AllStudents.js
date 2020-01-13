@@ -17,7 +17,7 @@ Frontend (React-Redux, React, and React Router)
 
 - [ X ] Write a component to display a list of all students (just their names)
 
-- [ ] Display the all-students component when the url matches `/students`
+- [ X ] Display the all-students component when the url matches `/students`
 
 - [ ] Add links to the navbar that can be used to navigate to the all-campuses view and the all-students view
 
@@ -30,35 +30,58 @@ import React, { Component } from 'react';
 // Import view;
 import AllStudentsView from "./../view/AllStudentsView";
 
-// Additional Redux store imports;
-// import { connect } from "react-redux";
-// import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./../../../store/utilities/students";
+import { connect } from "react-redux";
+import { fetchStudentsThunk} from "./../../store/utilities/students";
+import {  currStudentThunk } from "./../../store/utilities/student";
 
 
 
-const AllStudents = (props) => {
-    const {students, removeStudent, addStudent } = props;
+class AllStudents extends Component {
+    componentDidMount() {
+        this.props.fetchAllStudents();
+      }
+    
+      handleChange = (event) => {
+        this.setState({ [event.target.name]: event.target.value })
+      }
 
-    // const studentToAdd = {
-    //     "id": 2,
-    //     "firstName": "bob",
-    //     "lastName": "jones",
-    //     "email": "bobbyboy1234@yahoo.com",
-    //     "imageUrl": "https://i.imgur.com/GuAB8OE.jpg",
-    //     "gpa": 3.7,
-    //     "createdAt": "2018-12-05T23:02:45.270Z",
-    //     "updatedAt": "2019-06-14T00:15:35.429Z",
-    //     "campusId": 1
-    // }
+    //   onClickStudent = (event) => {
+    //       return (
+            
+    //       )
+        
+    //   }
 
-    return (
-    // <div className="App">
-    //     <header className="App-header">
-    //         {students.map(student => <div><img src={student.imageUrl} width="100" height="100" onClick={() => addStudent(studentToAdd)}></img></div>)}
-    //     </header>
-    // </div>
-        <AllStudentsView students={students} removeStudent={removeStudent} addStudent={addStudent} />
-    )
+      render() {
+
+        
+        return (
+              
+            <AllStudentsView students = {this.props.students} student = {this.props.student} getCurrentStudent= {this.props.getCurrentStudent}/>
+        
+            )
+      }
 }
 
-export default AllStudents;
+// Declaration for mapStateToProps;
+// The keys in this returned object will be on your component's `props` object;
+// The values of these keys reflect the value of the piece of state in your Redux store;
+const mapState = (state) => {
+    return {
+      students: state.students,
+      currStudent: state.student
+    }
+  }
+  
+  // Declaration for mapDispatchToProps;
+  // The keys in this returned object will be on your component's `props` object as well;
+  // The values of these keys are anonymous functions that will dispatch imported action creators or thunks so that a component can communicate with the appropriate reducer function(s);
+  const mapDispatch = (dispatch) => {
+    return {
+      fetchAllStudents: () => dispatch(fetchStudentsThunk()),
+      getCurrentStudent: (student) => dispatch(currStudentThunk(student))
+
+    }
+  }
+  
+  export default connect(mapState, mapDispatch)(AllStudents);

@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
+import AllStudents from "./components/container/AllStudents";
+import {BrowserRouter as Router, Route} from 'react-router-dom';
 
 // Import view;
 import AppView from "./AppView";
@@ -33,9 +35,26 @@ class AppContainer extends Component {
   }
 
   render() {
+
+    const AppViewComponent = () => <AppView />
+    const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
     return (
-      <AppView students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent} />
-    )
+      <div>
+        {/* <AppView /> */}
+
+        <Router>
+        <div className="App">
+          <div className="App-header">
+              <Route exact path="/" render={AppViewComponent}/>
+              <Route exact path="/students" render={AllStudentsComponent}/>
+            </div>
+        </div>
+
+        </Router>
+    
+        {/* <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/> */}
+      </div>
+      )
   }
 }
 

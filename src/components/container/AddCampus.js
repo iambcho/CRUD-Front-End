@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import {Link, Route} from 'react-router-dom';
 import { connect } from 'react-redux';
-// import { addCampusThunk } from "../../store/utilities/campuses";
+import { addCampusThunk } from "../../store/utilities/campuses";
 import './../../App.css';
 
 class AddCampus extends CompositionEvent {
@@ -21,11 +21,11 @@ class AddCampus extends CompositionEvent {
             imageURL,
             campusDescription
         }
-        console.log(data);
-        // this.props.dispatch({
-        //     type:'ADD_CAMPUS',
-        //     data
-        // });
+//         console.log(data);
+        this.props.dispatch({
+            type:'ADD_CAMPUS',
+            data
+        });
         this.getCampusName.value = '';
     }
 

@@ -35,7 +35,7 @@ class AddStudent extends Component {
         // console.log(data);
         this.props.dispatch({
             type:'ADD_STUDENT',
-            data});
+            payload: data});
         this.getFirstName.value = '';
         this.getLastName.value = '';
         this.getEmail.value = '';

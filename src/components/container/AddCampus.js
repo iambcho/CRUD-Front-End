@@ -23,7 +23,7 @@ class AddCampus extends Component {
 //         console.log(data);
         this.props.dispatch({
             type:'ADD_CAMPUS',
-            data
+            payload: data
         });
         this.getCampusName.value = '';
     }
@@ -46,6 +46,10 @@ class AddCampus extends Component {
                             Campus Name:
                             <input type="text" required ref={(input)=>this.getCampusName = input} placeholder="Campus Name"/>
                             <br/>
+
+                            <input type="submit" value="Add Campus"/>
+
+                            <button><Link to ="/students">Cancel</Link></button>
                         </form>
                     </header>
                 </div>

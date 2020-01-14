@@ -27,22 +27,6 @@ class AppContainer extends Component {
     }
   }
 
-  // componentDidMount() {
-  //   this.props.fetchAllStudents();
-  // }
-
-  // handleChange = (event) => {
-  //   this.setState({ [event.target.name]: event.target.value })
-  // }
-
-  // removeStudent = (id) => {
-  //   this.props.removeStudent(id);
-  // }
-
-  // addStudent = (student) => {
-  //   this.props.addStudent(student);
-  // }
-
   render() {
 
     const AppViewComponent = () => <AppView />

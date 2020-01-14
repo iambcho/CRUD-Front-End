@@ -16,9 +16,7 @@ class AddStudent extends Component {
         const email = this.getEmail.value;
         const gpa = this.getGPA.value;
 
-        const imageURL = "";
-        const createdAt = "";
-        const updatedAt = "";
+        const imageURL = "http://i.imgur.com/AItCxSs.jpg";
         const campusId = 0;
 
         const data = {
@@ -28,8 +26,8 @@ class AddStudent extends Component {
             email,
             gpa,
             imageURL,
-            createdAt,
-            updatedAt,
+            createdAt: new Date(),
+            updatedAt: new Date(),
             campusId
         }
         // console.log(data);

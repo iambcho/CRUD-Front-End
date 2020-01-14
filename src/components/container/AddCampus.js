@@ -7,12 +7,14 @@ class AddCampus extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
+        //  create key:values for new object
         const id=this.getCampusId.value;
         const campusName=this.getCampusName.value;
         const campusLocation = "";
         const imageURL = "http://i.imgur.com/AItCxSs.jpg";
         const campusDescription = "";
 
+        //  creates object
         const data = {
             id,
             campusName,
@@ -22,15 +24,19 @@ class AddCampus extends Component {
             createdAt: new Date(),
             updatedAt: new Date(),
         }
-//         console.log(data);
+
+        //  dispatches object of Campus
         this.props.dispatch({
             type:'ADD_CAMPUS',
             payload: data
         });
+
+        //  clears forms of recently entered values
         this.getCampusName.value = '';
         this.getCampusId.value = '';
     }
 
+    //  renders form for AddCampus
     render() {
         return(
             <div className="container">

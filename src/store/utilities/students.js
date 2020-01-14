@@ -1,4 +1,5 @@
-var arrayOfStudentsFromAPI = [
+let arrayOfStudentsFromAPI = [
+
     {
     "id": 4,
     "firstName": "Jerry",
@@ -95,8 +96,6 @@ const editStudent = (student) => {
 
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
-    
-
     dispatch(fetchStudents(arrayOfStudentsFromAPI))
 }
 
@@ -123,6 +122,7 @@ export default (state = [], action) => {
         case REMOVE_STUDENT:
             return state.filter(student => student.id !== action.payload);
         case ADD_STUDENT:
+            arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.payload];
             return [...state, action.payload]
         case EDIT_STUDENT:
             return state.map((student) => {

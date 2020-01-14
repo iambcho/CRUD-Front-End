@@ -1,17 +1,16 @@
 import React, { Component } from "react";
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addCampusThunk } from "../../store/utilities/campuses";
 import './../../App.css';
 
-class AddCampus extends CompositionEvent {
+class AddCampus extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const id=0;
+        const id=this.getCampusId.value;
         const campusName=this.getCampusName.value;
         const campusLocation = "";
-        const imageURL = "";
+        const imageURL = "http://i.imgur.com/AItCxSs.jpg";
         const campusDescription = "";
 
         const data = {
@@ -19,14 +18,17 @@ class AddCampus extends CompositionEvent {
             campusName,
             campusLocation,
             imageURL,
-            campusDescription
+            campusDescription,
+            createdAt: new Date(),
+            updatedAt: new Date(),
         }
 //         console.log(data);
         this.props.dispatch({
             type:'ADD_CAMPUS',
-            data
+            payload: data
         });
         this.getCampusName.value = '';
+        this.getCampusId.value = '';
     }
 
     render() {
@@ -47,6 +49,14 @@ class AddCampus extends CompositionEvent {
                             Campus Name:
                             <input type="text" required ref={(input)=>this.getCampusName = input} placeholder="Campus Name"/>
                             <br/>
+
+                            Campus ID:
+                            <input type="number" required ref={(input)=>this.getCampusId = input} placeholder="123456"/>
+                            <br/>
+
+                            <input type="submit" value="Add Campus"/>
+
+                            <button><Link to ="/students">Cancel</Link></button>
                         </form>
                     </header>
                 </div>

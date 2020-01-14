@@ -11,6 +11,7 @@ const AllCampusesView = (props) => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/students">All Students</Link></li>
+                    <li><Link to="/campuses">All Campuses</Link></li>
                 </ul>
             </div>
 
@@ -20,7 +21,7 @@ const AllCampusesView = (props) => {
 
                     <br/>
 
-                    <button><Link to="/add_students">Add Student</Link></button>
+                    <button><Link to="/add_campus">Add Campus</Link></button>
                     
                     <br/>
 
@@ -32,7 +33,7 @@ const AllCampusesView = (props) => {
 
                                 <Link to="/single_campus" ><div className="all-campuses-box" onClick={()=> getCurrentCampus(campus)}>
                                     
-                                <img src={campus.imageUrl} width="100" height="100" alt ="not found"></img>
+                                <img src={campus.imageURL} width="100" height="100" alt ="not found"></img>
 
                                 <p>{campus.campusName}</p>
                                 <p>{campus.campusLocation}</p>

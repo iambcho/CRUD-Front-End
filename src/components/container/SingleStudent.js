@@ -8,7 +8,9 @@ import SingleStudentView from "./../view/SingleStudentView";
 //to the instance of the class
 import { connect } from "react-redux";
 // import { fetchStudentsThunk} from "./../../store/utilities/students";
-import { currStudentThunk, editStudentThunk } from "./../../store/utilities/student";
+import { currStudentThunk} from "./../../store/utilities/student";
+//BELOW IS WHAT SUCH PREVIOUSLY HAD
+// import { currStudentThunk, editStudentThunk } from "./../../store/utilities/student";
 
 class SingleStudentContainer extends Component {
     componentDidMount=()=>{
@@ -32,7 +34,7 @@ const mapState = (state) =>{
 
 const mapDispatch = (dispatch) => {
     return ({
-        edit: (student) => dispatch(editStudentThunk(student)),
+        // edit: (student) => dispatch(editStudentThunk(student)),
         currStudent: (student) => dispatch(currStudentThunk(student))
     })
 }

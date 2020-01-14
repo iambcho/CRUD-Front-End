@@ -11,6 +11,7 @@ const AllCampusesView = (props) => {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/students">All Students</Link></li>
+                    <li><Link to="/campuses">All Campuses</Link></li>
                 </ul>
             </div>
 

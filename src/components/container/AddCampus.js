@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addCampusThunk } from "../../store/utilities/campuses";
 import './../../App.css';
 
-class AddCampus extends CompositionEvent {
+class AddCampus extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
@@ -24,7 +23,7 @@ class AddCampus extends CompositionEvent {
 //         console.log(data);
         this.props.dispatch({
             type:'ADD_CAMPUS',
-            data
+            payload: data
         });
         this.getCampusName.value = '';
     }
@@ -47,6 +46,10 @@ class AddCampus extends CompositionEvent {
                             Campus Name:
                             <input type="text" required ref={(input)=>this.getCampusName = input} placeholder="Campus Name"/>
                             <br/>
+
+                            <input type="submit" value="Add Campus"/>
+
+                            <button><Link to ="/students">Cancel</Link></button>
                         </form>
                     </header>
                 </div>

@@ -11,6 +11,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleStudentsView = (props) =>{
+    console.log("displaying single students")
     const{student} = props; //the view will only get a student from the props 
 
     return(
@@ -20,6 +21,7 @@ const SingleStudentsView = (props) =>{
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/students">All Students</Link></li>
+                    <li><Link to="/campuses">All Campuses</Link></li>
                 </ul>
             </div>
             <div className = "App">

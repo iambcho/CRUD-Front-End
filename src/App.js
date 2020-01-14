@@ -5,6 +5,9 @@ import AddStudent from './components/container/AddStudent';
 import SingleStudent from './components/container/SingleStudent';
 import EditStudent from './components/container/EditStudent';
 import AllCampuses from "./components/container/AllCampuses";
+import SingleCampus from "./components/container/SingleCampus";
+import AddCampus from "./components/container/AddCampus";
+
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -47,8 +50,10 @@ class AppContainer extends Component {
     const AddStudentComponent = () => <AddStudent/>
     const SingleStudentComponent = () => <SingleStudent/>
     const EditStudentComponent = () => <EditStudent/>
+    const SingleCampusComponent = () => <SingleCampus/>
     const AllCampusesComponnet = () => <AllCampuses/>
-    // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
+    const AddCampusComponent = () => <AddCampus/>
+
     return (
       <div>
    
@@ -62,7 +67,10 @@ class AppContainer extends Component {
                 <Route exact path="/add_students" render={AddStudentComponent}/>
                 <Route exact path="/single_student" render={SingleStudentComponent}/>
                 <Route exact path="/edit_student" render={EditStudentComponent}/>
-                <Route exact path="/campuses" render={AllCampusesComponnet}/>
+                <Route exact path ="/single_campus" render = {SingleCampusComponent}/>
+                <Route exact path="/campuses" render={AllCampusesComponent}/>
+                <Route exact path="/add_campus" render={AddCampusComponent}/>
+
               </div>
           </div>
           </Switch>

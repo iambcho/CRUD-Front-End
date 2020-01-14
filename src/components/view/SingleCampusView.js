@@ -38,7 +38,7 @@ const SingleCampusView = (props) => {
                         <select className = "Select-Campus">
                             <option value = "SELECT">SELECT</option>
                         </select>
-                        <button className = "Change-Campus">Change Campus</button>
+                        <button className = "Edit-Campus">Edit</button>
                     </div>
                 }
                 <button /**Handle click event which should add existing students to this campus */>Add Students</button>

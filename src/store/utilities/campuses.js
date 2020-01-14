@@ -71,7 +71,7 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "id": 99,
             "campusName": "Brooklyn Tech",
             "campusLocation": "Bronx",
-            "imageURL": "https://i.imgurhttps://ballmemes.com/i/1-25-nydailynews-com-sports-final-chance-of-rain-70-58-wednesday-october-83e1545695c041ceb6cab7889cb9ae4d.com/RdwZ6mO.jpg",
+            "imageURL": "https://i.imgur.com/HQw3fzsh.jpg",
             "campusDescription": "Not a college, full of weirdos",
             "campusStudents":3
         },

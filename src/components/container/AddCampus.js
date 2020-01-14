@@ -18,7 +18,9 @@ class AddCampus extends Component {
             campusName,
             campusLocation,
             imageURL,
-            campusDescription
+            campusDescription,
+            createdAt: new Date(),
+            updatedAt: new Date(),
         }
 //         console.log(data);
         this.props.dispatch({

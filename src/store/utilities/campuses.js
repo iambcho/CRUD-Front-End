@@ -41,6 +41,8 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "campusLocation": "695 Park Ave, New York, NY 10065",
             "imageURL": "https://i.imgur.com/RdwZ6mO.jpg",
             "campusDescription": "Hunter College be like that",
+            "createdAt": "2018-12-06T19:58:21.314Z",
+            "updatedAt": "2018-12-06T19:58:21.314Z",
             "campusStudents":1
         },
         {
@@ -49,6 +51,8 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "campusLocation": "that locations though",
             "imageURL": "https://i.imgflip.com/3fkdf4.jpg",
             "campusDescription": "Hunter College be like that",
+            "createdAt": "2018-12-06T19:58:21.314Z",
+            "updatedAt": "2018-12-06T19:58:21.314Z",
             "campusStudents":undefined
         },
         {
@@ -57,6 +61,8 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "campusLocation": "",
             "imageURL": "",
             "campusDescription": "",
+            "createdAt": "2018-12-06T19:58:21.314Z",
+            "updatedAt": "2018-12-06T19:58:21.314Z",
             "campusStudents":0
         },
         {
@@ -65,6 +71,8 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "campusLocation": "New York",
             "imageURL": "https://i.kym-cdn.com/photos/images/newsfeed/000/248/262/882.jpg",
             "campusDescription": "This is everywhere",
+            "createdAt": "2018-12-06T19:58:21.314Z",
+            "updatedAt": "2018-12-06T19:58:21.314Z",
             "campusStudents":5
         },
         {
@@ -73,6 +81,8 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "campusLocation": "Bronx",
             "imageURL": "https://i.imgur.com/HQw3fzsh.jpg",
             "campusDescription": "Not a college, full of weirdos",
+            "createdAt": "2018-12-06T19:58:21.314Z",
+            "updatedAt": "2018-12-06T19:58:21.314Z",
             "campusStudents":3
         },
     ];

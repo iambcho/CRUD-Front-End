@@ -4,7 +4,6 @@ const EDIT_STUDENT = "EDIT_STUDENT";
 const CURR_STUDENT = "CURR_STUDENT";
 
 // ACTION CREATOR;
-//potentially switch id -> student
 const deleteStudent = (id) => {
     return {
         type: DELETE_STUDENT,
@@ -18,7 +17,6 @@ const editStudent = (student) => {
         payload: student
     }
 }
-
 
 const currStudent = (student) => {
     return {

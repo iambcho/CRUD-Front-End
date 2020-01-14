@@ -1,5 +1,14 @@
+/**
+ * Comments are done quickly, cannot ensure all information presented is accurate or 
+ * up to date in future time, but the purpose of these coments are to help
+ * understand the tech we are learning at our bootcamp.
+ * Date: 1/14/20
+ */
 import React, { Component } from 'react';
+//styling for the webpage
 import './App.css';
+
+//These are all the component we need to run our application
 import AllStudents from "./components/container/AllStudents";
 import AddStudent from './components/container/AddStudent';
 import SingleStudent from './components/container/SingleStudent';
@@ -7,27 +16,22 @@ import AllCampuses from "./components/container/AllCampuses";
 import SingleCampus from "./components/container/SingleCampus";
 import AddCampus from "./components/container/AddCampus";
 
-
+//This is needed in order to create a SPA (Single Page Application)
+//SPA's are useful in the sense that they allow the client to 
+//transition between "pages" without having to reload the entire page
+//instead with routers you can just load the contents of the single page
+//that need to be changed, leading to faster load times
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
-// Import view;
+// Import Appview to be able to display the components in a SPA;
 import AppView from "./AppView";
 
-// Additional Redux store imports;
-// import { connect } from "react-redux";
-// import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
-
-
 class AppContainer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      amount: 0
-    }
-  }
-
+  //tells the reactDOM what to display bsaed on the information provided
   render() {
-
+    //With Route component we cannot load up pre-built components
+    //as a result we generate these functions that return the components.
+    //This way we can render pages by passing them as functions (which arent pre-built)
     const AppViewComponent = () => <AppView />
     const AllStudentsComponent = () => <AllStudents />
     const AddStudentComponent = () => <AddStudent/>
@@ -35,17 +39,23 @@ class AppContainer extends Component {
     const SingleCampusComponent = () => <SingleCampus/>
     const AllCampusesComponent = () => <AllCampuses/>
     const AddCampusComponent = () => <AddCampus/>
+
     return (
       <div>
-   
-
+        {/*The Router component enables use to render the pages we provide the paths to*/}
         <Router>
+          {/* The Switch component ensure we render only one page (this means that multiple 
+          components can be rendered at the same time but to avoid problems we ensure 
+          only one page is rendered ) */}
           <Switch>
           <div className="App">
             <div className="App-header">
+                {/* Each Route Component needs a path prop followed by a render prop 
+                to be able to load to component at the appropriate url link */}
                 <Route exact path="/" render={AppViewComponent}/>
                 <Route exact path="/students" render={AllStudentsComponent}/>
-                <Route exact path="/add_students" render={AddStudentComponent}/>
+                {/* Add Students comment later You DUmmy */}
+                <Route exact path="/add_students" render={AddStudentComponent}/> 
                 <Route exact path="/single_student" render={SingleStudentComponent}/>
                 <Route exact path ="/single_campus" render = {SingleCampusComponent}/>
                 <Route exact path="/campuses" render={AllCampusesComponent}/>
@@ -54,33 +64,10 @@ class AppContainer extends Component {
           </div>
           </Switch>
         </Router>
-    
-      
       </div>
-      )
+    )
   }
 }
-
+//prupose is to when we import this component into another file, the 
+//main component that will be called on is AppContainer
 export default AppContainer;
-
-// // Declaration for mapStateToProps;
-// // The keys in this returned object will be on your component's `props` object;
-// // The values of these keys reflect the value of the piece of state in your Redux store;
-// const mapState = (state) => {
-//   return {
-//     students: state.students
-//   }
-// }
-
-// // Declaration for mapDispatchToProps;
-// // The keys in this returned object will be on your component's `props` object as well;
-// // The values of these keys are anonymous functions that will dispatch imported action creators or thunks so that a component can communicate with the appropriate reducer function(s);
-// const mapDispatch = (dispatch) => {
-//   return {
-//     fetchAllStudents: () => dispatch(fetchStudentsThunk()),
-//     removeStudent: (id) => dispatch(removeStudentThunk(id)),
-//     addStudent: (student) => dispatch(addStudentThunk(student))
-//   }
-// }
-
-// export default connect(mapState, mapDispatch)(AppContainer);

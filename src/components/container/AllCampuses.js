@@ -1,3 +1,9 @@
+/**
+ * Comments are done quickly, cannot ensure all information presented is accurate or 
+ * up to date in future time, but the purpose of these coments are to help
+ * understand the tech we are learning at our bootcamp.
+ * Date: 1/14/20
+ */
 import React, { Component } from 'react';
 import './../../App.css';
 

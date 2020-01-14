@@ -75,7 +75,7 @@ class AddStudent extends Component {
                             <br/>
 
                             Student ID:
-                            <input className="studentID" type="number" required ref={(input)=>this.getID = input} placeholder="123456"/ >
+                            <input className="studentID" type="number" required ref={(input)=>this.getID = input} placeholder="123456"/>
                             <br/>
 
                             <input type="submit" value="Add Student"/>

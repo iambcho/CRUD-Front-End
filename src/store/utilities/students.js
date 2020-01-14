@@ -1,4 +1,4 @@
-const arrayOfStudentsFromAPI = [
+var arrayOfStudentsFromAPI = [
     {
     "id": 4,
     "firstName": "Jerry",

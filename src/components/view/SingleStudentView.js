@@ -11,7 +11,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleStudentsView = (props) =>{
-    const{student} = props; //the view will only get a student from the props 
+    const{student, getCurrentStudent} = props; //the view will only get a student from the props 
 
     return(
         <div className="container"> 
@@ -28,6 +28,9 @@ const SingleStudentsView = (props) =>{
                     <p id = "student-name">{student.firstName} {student.lastName}</p>
                     <p id = "gpa">GPA: {student.gpa}</p>
                     <br/>
+
+                    <Link to="/edit_student"><button onClick={() => getCurrentStudent(student)}>Edit</button></Link>
+
                     {/* Cannot use if else so need turnary operator */}
                     {
                         (student.campusId === null)

@@ -42,6 +42,7 @@ const AllStudentsView = (props) => {
 
                             <p>{student.firstName} {student.lastName}</p>
                             <p>Campus Name</p>
+                            
                         </div></Link>)
                     }
                 </div>

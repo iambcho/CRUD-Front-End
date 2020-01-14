@@ -7,10 +7,10 @@ class AddCampus extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
-        const id=0;
+        const id=this.getCampusId.value;
         const campusName=this.getCampusName.value;
         const campusLocation = "";
-        const imageURL = "";
+        const imageURL = "http://i.imgur.com/AItCxSs.jpg";
         const campusDescription = "";
 
         const data = {
@@ -28,6 +28,7 @@ class AddCampus extends Component {
             payload: data
         });
         this.getCampusName.value = '';
+        this.getCampusId.value = '';
     }
 
     render() {
@@ -47,6 +48,10 @@ class AddCampus extends Component {
                         <form onSubmit={this.handleSubmit}>
                             Campus Name:
                             <input type="text" required ref={(input)=>this.getCampusName = input} placeholder="Campus Name"/>
+                            <br/>
+
+                            Campus ID:
+                            <input type="number" required ref={(input)=>this.getCampusId = input} placeholder="123456"/>
                             <br/>
 
                             <input type="submit" value="Add Campus"/>

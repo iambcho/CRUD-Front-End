@@ -8,10 +8,10 @@ class AddCampus extends Component {
         event.preventDefault();
 
         //  create key:values for new object
-        const id=0;
+        const id=this.getCampusId.value;
         const campusName=this.getCampusName.value;
         const campusLocation = "";
-        const imageURL = "";
+        const imageURL = "http://i.imgur.com/AItCxSs.jpg";
         const campusDescription = "";
 
         //  creates object
@@ -20,7 +20,9 @@ class AddCampus extends Component {
             campusName,
             campusLocation,
             imageURL,
-            campusDescription
+            campusDescription,
+            createdAt: new Date(),
+            updatedAt: new Date(),
         }
 
         //  dispatches object of Campus
@@ -31,6 +33,7 @@ class AddCampus extends Component {
 
         //  clears forms of recently entered values
         this.getCampusName.value = '';
+        this.getCampusId.value = '';
     }
 
     //  renders form for AddCampus
@@ -51,6 +54,10 @@ class AddCampus extends Component {
                         <form onSubmit={this.handleSubmit}>
                             Campus Name:
                             <input type="text" required ref={(input)=>this.getCampusName = input} placeholder="Campus Name"/>
+                            <br/>
+
+                            Campus ID:
+                            <input type="number" required ref={(input)=>this.getCampusId = input} placeholder="123456"/>
                             <br/>
 
                             <input type="submit" value="Add Campus"/>

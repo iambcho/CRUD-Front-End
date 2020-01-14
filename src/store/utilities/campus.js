@@ -6,10 +6,10 @@ const EDIT_CAMPUS = "EDIT_CAMPUS";
 /*currCampus creates a object that has type CURR_CAMPUS
 this refers to the campus the mouse has clicked on, and 
 will be used to display the information it contains*/
-const currCampus=(id)=>{
+const currCampus=(campus)=>{
     return ({
         type: CURR_CAMPUS,
-        payload: id
+        payload: campus
     });
 }
 

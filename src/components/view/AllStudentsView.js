@@ -42,7 +42,6 @@ const AllStudentsView = (props) => {
                                 <div className = "all-students-box" onClick={() => getCurrentStudent(student)}>
                                     {/* <img src={student.imageUrl} width="100" height="100" onClick={() => addStudent(studentToAdd)}></img> */}
                                     <img src={student.imageUrl} width="100" height="100" alt = "not found"></img>
-
                                     <p>{student.firstName} {student.lastName}</p>
                                     <p>Campus Name</p>
                                 </div>

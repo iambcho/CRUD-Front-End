@@ -13,17 +13,21 @@ import SingleStudentView from "./../view/SingleStudentView";
 //import connect in order to be able to use
 //the store functions/states/objects
 import { connect } from "react-redux";
-
-import { currStudentThunk, editStudentThunk } from "./../../store/utilities/student";
+// import { fetchStudentsThunk} from "./../../store/utilities/students";
+import { currStudentThunk} from "./../../store/utilities/student";
+//BELOW IS WHAT SUCH PREVIOUSLY HAD
+// import { currStudentThunk, editStudentThunk } from "./../../store/utilities/student";
 
 class SingleStudentContainer extends Component {
     componentDidMount=()=>{
-        this.props.currStudent(this.props.student);
+        // console.log("singlestuden: " ,this.props.student)
+        this.props.getCurrentStudent(this.props.student);
+
     }
 
     render(){
         return(
-            <SingleStudentView student = {this.props.student}></SingleStudentView>
+            <SingleStudentView student = {this.props.student} getCurrentStudent={this.props.getCurrentStudent}></SingleStudentView>
         )
     }
 
@@ -37,8 +41,8 @@ const mapState = (state) =>{
 
 const mapDispatch = (dispatch) => {
     return ({
-        edit: (student) => dispatch(editStudentThunk(student)),
-        currStudent: (student) => dispatch(currStudentThunk(student))
+        // edit: (student) => dispatch(editStudentThunk(student)),
+        getCurrentStudent: (student) => dispatch(currStudentThunk(student))
     })
 }
 

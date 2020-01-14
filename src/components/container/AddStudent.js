@@ -3,22 +3,20 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './../../App.css';
 
-
-//  turn into function that takes in props
-//  and only renders
 class AddStudent extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
+        //  create key:values for new object
         const id=this.getID.value;
         const firstName = this.getFirstName.value;
         const lastName = this.getLastName.value;
         const email = this.getEmail.value;
         const gpa = this.getGPA.value;
-
         const imageURL = "http://i.imgur.com/AItCxSs.jpg";
         const campusId = 0;
 
+        //  creates object
         const data = {
             id,
             firstName,
@@ -30,16 +28,21 @@ class AddStudent extends Component {
             updatedAt: new Date(),
             campusId
         }
-        // console.log(data);
+
+        //  dispatches object of Student
         this.props.dispatch({
             type:'ADD_STUDENT',
-            payload: data});
+            payload: data
+        });
+
+        //  clears forms of recently entered values
         this.getFirstName.value = '';
         this.getLastName.value = '';
         this.getEmail.value = '';
         this.getGPA.value = '';
     }
 
+    //  renders form for AddStudents
     render() {
         return(
             <div className="container">
@@ -82,7 +85,7 @@ class AddStudent extends Component {
                     </header>
                 </div>
             </div>
-        );
+        )
     }
 }
 

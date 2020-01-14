@@ -1,4 +1,5 @@
-var arrayOfStudentsFromAPI = [
+let arrayOfStudentsFromAPI = [
+
     {
     "id": 4,
     "firstName": "Jerry",
@@ -56,12 +57,12 @@ var arrayOfStudentsFromAPI = [
     }
 ]
 
-
 // ACTION TYPES;
 const FETCH_STUDENTS = "FETCH_STUDENTS";
 const REMOVE_STUDENT = "REMOVE_STUDENT";
 const ADD_STUDENT = "ADD_STUDENT";
-// const CURR_STUDENT = "CURR_STUDENT";
+const EDIT_STUDENT = "EDIT_STUDENT";
+
 
 // ACTION CREATOR;
 const fetchStudents = (students) => {
@@ -85,12 +86,13 @@ const addStudent = (student) => {
     }
 }
 
-// const currStudent = (student) => {
-//     return {
-//         type: CURR_STUDENT,
-//         payload: student
-//     }
-// }
+const editStudent = (student) => {
+    return {
+        type: EDIT_STUDENT,
+        payload: student
+    }
+}
+
 
 // THUNK CREATOR;
 export const fetchStudentsThunk = () => (dispatch) => {
@@ -107,10 +109,10 @@ export const addStudentThunk = (student) => (dispatch) => {
     dispatch(resolvedActionObject);
 }
 
-// export const currStudentThunk = (student) => (dispatch) => {
-//     let resolvedActionObject = currStudent(student);
-//     dispatch(resolvedActionObject);
-// }
+export const editStudentThunk = (student) => (dispatch) => {
+    let resolvedActionObject = editStudent(student); 
+    dispatch(resolvedActionObject);
+}
 
 // REDUCER FUNCTION;
 export default (state = [], action) => {
@@ -122,8 +124,19 @@ export default (state = [], action) => {
         case ADD_STUDENT:
             arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.payload];
             return [...state, action.payload]
-        // case CURR_STUDENT:
-        //     return action.payload;
+        case EDIT_STUDENT:
+            return state.map((student) => {
+                if (student.id === action.payload.id) {
+                    return {
+                    ...student,
+                    firstName: action.payload.firstName,
+                    lastName: action.payload.lastName,
+                    gpa: action.payload.gpa,
+                    imageUrl: action.payload.imageUrl
+                    }
+                } 
+                else return student;
+                })
         default:
             return state;
     }

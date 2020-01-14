@@ -34,7 +34,9 @@ class EditStudent extends Component {
     }
     async componentDidMount () {
         await this.props.fetchAllStudents();
-        await this.props.getCurrentStudent();
+        // await this.props.getCurrentStudent();
+        await this.props.getCurrentStudent(this.props.student);
+        // this.props.getCurrentStudent(this.newStudent);
 
                 const {id, firstName, lastName, gpa, imageUrl} = this.props.student;
         this.setState(
@@ -44,6 +46,9 @@ class EditStudent extends Component {
         )
       }
 
+    //   componentDidUpdate () {
+    //       this.props.getCurrentStudent(this.newStudent);
+    //   }
 
 
     
@@ -69,6 +74,7 @@ class EditStudent extends Component {
             imageUrl
         }
         this.props.editStudent(newStudent);
+        this.props.getCurrentStudent(newStudent);
         console.log(newStudent);
         //this.props.dispatch({type: 'EDIT_STUDENT', payload: newStudent});
     }
@@ -77,24 +83,37 @@ class EditStudent extends Component {
         
         return (
               
-            //<EditStudent students = {this.props.students} student = {this.props.student} getCurrentStudent= {this.props.getCurrentStudent}/>
-            <div>
-                <form onSubmit={this.handleEdit}>
-                    First name:
-                    <input type = "text" name="firstName" onChange={this.handleChange} value={this.state.firstName}></input><br/>
-                    Last name: 
-                    <input type = "text" name="lastName" onChange={this.handleChange} value={this.state.lastName}></input><br/>
-                    GPA: 
-                    <input type = "text" name="gpa" onChange={this.handleChange} value={this.state.gpa}></input><br/>
-                    Student image:
-                    <input type = "text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}></input><br/>
-                    <input type = "submit" ></input>
+            <div className="container">
+                <div className = "nav-bar">
+                        <ul>
+                            <li><Link to="/">Home</Link></li>
+                            <li><Link to="/students">All Students</Link></li>
+                            <li><Link to="/campuses">All Campuses</Link></li>
+                        </ul>
+                    </div>
                     
-                    
-                    
-                </form>
-
-                <Link to="/single_student">Back</Link>
+            <div className="App">
+                
+                <header className="App-header">
+                        <h1>Edit Student</h1>
+                        <form onSubmit={this.handleEdit}>
+                            First name:
+                            <input type = "text" name="firstName" onChange={this.handleChange} value={this.state.firstName}></input><br/>
+                            Last name: 
+                            <input type = "text" name="lastName" onChange={this.handleChange} value={this.state.lastName}></input><br/>
+                            GPA: 
+                            <input type = "text" name="gpa" onChange={this.handleChange} value={this.state.gpa}></input><br/>
+                            Student image:
+                            <input type = "text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}></input><br/>
+                            <input type = "submit" ></input>
+                            
+                            
+                            
+                        </form>
+                        <br/>
+                        <Link to="/single_student">Back</Link>
+                    </header>
+                </div>
             </div>
             )
       }

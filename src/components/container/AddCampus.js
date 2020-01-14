@@ -7,12 +7,14 @@ class AddCampus extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
+        //  create key:values for new object
         const id=0;
         const campusName=this.getCampusName.value;
         const campusLocation = "";
         const imageURL = "";
         const campusDescription = "";
 
+        //  creates object
         const data = {
             id,
             campusName,
@@ -20,14 +22,18 @@ class AddCampus extends Component {
             imageURL,
             campusDescription
         }
-//         console.log(data);
+
+        //  dispatches object of Campus
         this.props.dispatch({
             type:'ADD_CAMPUS',
             payload: data
         });
+
+        //  clears forms of recently entered values
         this.getCampusName.value = '';
     }
 
+    //  renders form for AddCampus
     render() {
         return(
             <div className="container">

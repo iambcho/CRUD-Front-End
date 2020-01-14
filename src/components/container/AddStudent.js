@@ -1,7 +1,6 @@
 import React, { Component } from "react";
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addStudentThunk } from "../../store/utilities/students";
 import './../../App.css';
 
 
@@ -50,6 +49,7 @@ class AddStudent extends Component {
                     <ul>
                         <li><Link to="/">Home</Link></li>
                         <li><Link to="/students">All Students</Link></li>
+                        <li><Link to="/campuses">All Campuses</Link></li>
                     </ul>
                 </div>
 

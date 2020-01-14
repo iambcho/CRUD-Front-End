@@ -13,7 +13,6 @@ import { Link } from "react-router-dom";
 const SingleStudentsView = (props) =>{
     const{student} = props; //the view will only get a student from the props 
 
-    console.log("the student is: ", student);
     return(
         <div className="container"> 
             <h2>Show Student</h2>
@@ -25,7 +24,7 @@ const SingleStudentsView = (props) =>{
             </div>
             <div className = "App">
                 <div className = "Student">
-                    <img src = {student.imageUrl} width="100" height="100"></img>
+                    <img src = {student.imageUrl} width="100" height="100" alt ="not found"></img>
                     <p id = "student-name">{student.firstName} {student.lastName}</p>
                     <p id = "gpa">GPA: {student.gpa}</p>
                     <br/>

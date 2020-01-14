@@ -33,7 +33,7 @@ const AllCampusesView = (props) => {
 
                                 <Link to="/single_campus" ><div className="all-campuses-box" onClick={()=> getCurrentCampus(campus)}>
                                     
-                                <img src={campus.imageUrl} width="100" height="100" alt ="not found"></img>
+                                <img src={campus.imageURL} width="100" height="100" alt ="not found"></img>
 
                                 <p>{campus.campusName}</p>
                                 <p>{campus.campusLocation}</p>

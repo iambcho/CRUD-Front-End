@@ -11,6 +11,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleStudentsView = (props) =>{
+    console.log("displaying single students")
     const{student} = props; //the view will only get a student from the props 
 
     return(

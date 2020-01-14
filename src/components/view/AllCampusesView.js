@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from 'react-router-dom';
-import { currCampusThunk } from "../../store/utilities/campus";
 
 const AllCampusesView = (props) => {
     const {campuses, getCurrentCampus} = props;

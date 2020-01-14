@@ -9,7 +9,7 @@ import { Link } from "react-router-dom";
 
 const SingleStudentsView = (props) =>{
 
-    const{student} = props; //the view will only get a student from the props 
+    const{student, getCurrentStudent} = props; //the view will only get a student from the props 
 
 
     return(

@@ -47,3 +47,5 @@ function singleCampusReducer(state={}, action){
             return state;
     }
 }
+
+export default singleCampusReducer;

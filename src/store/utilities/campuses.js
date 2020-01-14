@@ -6,26 +6,26 @@ const ADD_CAMPUS = "ADD_CAMPUS"
 //ACTION CREATOR
 //fetchCampuses is returning a object of type FETCH_CAMPUSES
 const fetchCampuses = (campuses) =>{
-    return({
+    return{
         type: FETCH_CAMPUSES,
         payload: campuses
-    })
+    }
 }
 
 //removeCampus is returning a object of type REMOVE_CAMPUS
 const removeCampus = (id) => {
-    return({
+    return{
         type: REMOVE_CAMPUS,
         payload: id
-    })
+    }
 }
 
 //addCampus is returning a object of type ADD_CAMPUS
 const addCampus = (campus) => {
-    return ({
+    return {
         type: ADD_CAMPUS,
         payload: campus
-    })
+    }
 }
 
 //THUNK CREATOR
@@ -34,7 +34,7 @@ const addCampus = (campus) => {
 //later, it doesn't block other functions and 
 //once complete will be outputed after call stack is empty
 export const fetchCampusesThunk = () => (dispatch) => {
-    const arrayOfCampusFromAPI = [ //this is dumb data
+    const arrayOfCampusFromAPI = [ 
         {
             "id": 99,
             "campusName": "Hunter College",
@@ -50,7 +50,7 @@ export const fetchCampusesThunk = () => (dispatch) => {
             "campusDescription": "Hunter College be like that",
         },
         {
-            "id": null,
+            "id": "",
             "campusName": "",
             "campusLocation": "",
             "imageURL": "",
@@ -84,17 +84,16 @@ export const addCampusThunk = (campus) => (dispatch) => {
 }
 
 //REDUCER FUNCTION
-function allCampusesReducer(state = [], action){
+export default (state = [], action) => {
     switch (action.type) {
         case FETCH_CAMPUSES:
             return action.payload;
         case REMOVE_CAMPUS:
             return state.filter(campus => campus.id !== action.payload);
         case ADD_CAMPUS:
-            return [...campus, action.payload];
+            return [...state, action.payload];
         default:
             return state;
     }
 } 
 
-export default allCampusesReducer;

@@ -1,16 +1,9 @@
 import React from "react";
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { currStudentThunk } from "../../store/utilities/student";
 
 const AllStudentsView = (props) => {
-    const {students, student, getCurrentStudent} = props;
-
-    console.log(student);
-    // onClickStudent = (event) => {
-    //     return (
-    //         event.target.value.id;
-    //     )
-    // }
+    const {students, getCurrentStudent} = props;
     
     return (
     <div className="container">
@@ -45,7 +38,7 @@ const AllStudentsView = (props) => {
                     
                         <Link to="/single_student" ><div className = "all-students-box" onClick={() => getCurrentStudent(student)}>
                             {/* <img src={student.imageUrl} width="100" height="100" onClick={() => addStudent(studentToAdd)}></img> */}
-                            <img src={student.imageUrl} width="100" height="100"></img>
+                            <img src={student.imageUrl} width="100" height="100" alt = "not found"></img>
 
                             <p>{student.firstName} {student.lastName}</p>
                             <p>Campus Name</p>

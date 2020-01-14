@@ -5,15 +5,11 @@ import AllCampusesView from "./../view/AllCampusesView";
 
 import { connect } from "react-redux";
 import { fetchCampusesThunk } from "./../../store/utilities/campuses";
-// import { currCampusThunk } from "./../../store/utilities/campus";
+import { currCampusThunk } from "./../../store/utilities/campus";
 
 class AllCampuses extends Component {
     componentDidMount() {
         this.props.fetchAllCampuses();
-    }
-
-    handleChane = (event) => {
-        this.setState({ [event.target.name]: event.target.value})
     }
 
     render() {
@@ -25,7 +21,7 @@ class AllCampuses extends Component {
 
 const mapState = (state) => {
     return {
-        campus: state.campuses,
+        campuses: state.campuses,
         currCampus: state.campus
     }
 }

@@ -39,28 +39,13 @@ import {  currStudentThunk } from "./../../store/utilities/student";
 class AllStudents extends Component {
     componentDidMount() {
         this.props.fetchAllStudents();
-      }
-    
-      handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
-      }
+    }
 
-    //   onClickStudent = (event) => {
-    //       return (
-            
-    //       )
-        
-    //   }
-
-      render() {
-
-        
+    render() {
         return (
-              
             <AllStudentsView students = {this.props.students} student = {this.props.student} getCurrentStudent= {this.props.getCurrentStudent}/>
-        
-            )
-      }
+        )
+    }
 }
 
 // Declaration for mapStateToProps;

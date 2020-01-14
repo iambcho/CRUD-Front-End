@@ -11,8 +11,8 @@ import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 import AppView from "./AppView";
 
 // Additional Redux store imports;
-import { connect } from "react-redux";
-import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
+// import { connect } from "react-redux";
+// import { fetchStudentsThunk, removeStudentThunk, addStudentThunk } from "./store/utilities/students";
 
 
 class AppContainer extends Component {

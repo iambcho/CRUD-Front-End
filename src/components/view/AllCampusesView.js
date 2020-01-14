@@ -1,12 +1,10 @@
 import React from "react";
-import { Link, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import { currCampusThunk } from "../../store/utilities/campus";
 
 const AllCampusesView = (props) => {
-    const {campuses, campus, getCurrentCampus} = props;
-
-    console.log(campus);
-
+    const {campuses, getCurrentCampus} = props;
+    
     return (
         <div className="container">
             <div className = "nav-bar">
@@ -27,14 +25,14 @@ const AllCampusesView = (props) => {
                     <br/>
 
                     {
-                        (campuses.length < 1)
+                        (campuses === undefined || campuses.length < 1 ) 
                         ? <div> <p>There are no campuses</p></div>
                         : <div className="all-campuses-container">
                             {campuses.map(campus =>
 
                                 <Link to="/single_campus" ><div className="all-campuses-box" onClick={()=> getCurrentCampus(campus)}>
                                     
-                                <img src={campus.imageUrl} width="100" height="100"></img>
+                                <img src={campus.imageUrl} width="100" height="100" alt ="not found"></img>
 
                                 <p>{campus.campusName}</p>
                                 <p>{campus.campusLocation}</p>

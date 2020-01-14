@@ -4,6 +4,7 @@ import AllStudents from "./components/container/AllStudents";
 import AddStudent from './components/container/AddStudent';
 import SingleStudent from './components/container/SingleStudent';
 import AllCampuses from "./components/container/AllCampuses";
+import SingleCampus from "./components/container/SingleCampus";
 
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom';
 
@@ -46,6 +47,7 @@ class AppContainer extends Component {
     const AddStudentComponent = () => <AddStudent/>
     const SingleStudentComponent = () => <SingleStudent/>
     const AllCampusesComponnet = () => <AllCampuses/>
+    const SingleCampusComponent = () => <SingleCampus/>
     // const AllStudentsComponent = () => <AllStudents students={this.props.students} removeStudent={this.removeStudent} addStudent={this.addStudent}/>
     return (
       <div>
@@ -60,6 +62,7 @@ class AppContainer extends Component {
                 <Route exact path="/add_students" render={AddStudentComponent}/>
                 <Route exact path="/single_student" render={SingleStudentComponent}/>
                 <Route exact path="/campuses" render={AllCampusesComponnet}/>
+                <Route exact path ="/single_campus" render = {SingleCampusComponent}/>
               </div>
           </div>
           </Switch>

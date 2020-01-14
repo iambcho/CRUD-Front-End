@@ -20,7 +20,7 @@ const AllCampusesView = (props) => {
 
                     <br/>
 
-                    <button><Link to="/add_students">Add Student</Link></button>
+                    <button><Link to="/add_campus">Add Campus</Link></button>
                     
                     <br/>
 

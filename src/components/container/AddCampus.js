@@ -1,10 +1,9 @@
 import React, { Component } from "react";
-import {Link, Route} from 'react-router-dom';
+import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
-import { addCampusThunk } from "../../store/utilities/campuses";
 import './../../App.css';
 
-class AddCampus extends CompositionEvent {
+class AddCampus extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 

@@ -48,7 +48,6 @@ class AppContainer extends Component {
     const AllStudentsComponent = () => <AllStudents />
     const AddStudentComponent = () => <AddStudent/>
     const SingleStudentComponent = () => <SingleStudent/>
-    const AllCampusesComponnet = () => <AllCampuses/>
     const SingleCampusComponent = () => <SingleCampus/>
     const AllCampusesComponent = () => <AllCampuses/>
     const AddCampusComponent = () => <AddCampus/>

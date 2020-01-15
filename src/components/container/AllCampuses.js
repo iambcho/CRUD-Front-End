@@ -13,7 +13,6 @@ import { connect } from "react-redux";
 import { fetchCampusesThunk } from "./../../store/utilities/campuses";
 import { currCampusThunk } from "./../../store/utilities/campus";
 import { removeCampusThunk } from "./../../store/utilities/campuses";
-import { removeStudentThunk } from '../../store/utilities/students';
 
 class AllCampuses extends Component {
     componentDidMount() {

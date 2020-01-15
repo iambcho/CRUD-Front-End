@@ -25,7 +25,7 @@ class AddCampus extends Component {
             updatedAt: new Date(),
         }
 
-        //  dispatches object of Campus
+        //  dispatches object of a new Campus
         this.props.dispatch({
             type:'ADD_CAMPUS',
             payload: data

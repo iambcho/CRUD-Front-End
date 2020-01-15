@@ -17,13 +17,9 @@ const AllCampusesView = (props) => {
             <div className="App">
                 <header className="App-header">
                     <h1>All Campuses</h1>
-
                     <br/>
-
-                    <button><Link to="/add_campus">Add Campus</Link></button>
-                    
+                    <button><Link to="/add_campus">Add Campus</Link></button>   
                     <br/>
-
                     {
                         (campuses === undefined || campuses.length < 1 ) 
                         ? <div> <p>There are no campuses</p></div>
@@ -35,8 +31,8 @@ const AllCampusesView = (props) => {
                                 <img src={campus.imageURL} width="100" height="100" alt ="not found"></img>
 
                                 <p>{campus.campusName}</p>
-                                <p>{campus.campusLocation}</p>
-                                <p>{campus.campusDescription}</p>
+                                {/* <p>{campus.campusLocation}</p> */}
+                                {/* <p>{campus.campusDescription}</p> */}
                                 </div></Link>)
                             }
                         </div>

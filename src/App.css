@@ -41,11 +41,11 @@
   }
 }
 
-.all-students-container {
+.all-students-container, .all-campuses-container{
   display: flex;
 }
 
-.all-students-box {
+.all-students-box, .all-campuses-box {
   padding: 20px;
   margin: 10px;
   background-color: #f1e3dd;

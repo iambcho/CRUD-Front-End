@@ -72,12 +72,12 @@ export default (state = {}, action) => {
             return action.payload;
         case EDIT_STUDENT:
             return {
-                    ...state,
-                    firstName: action.payload.firstName,
-                    lastName: action.payload.lastName,
-                    gpa: action.payload.gpa,
-                    imageUrl: action.payload.imageUrl
-                    }
+                ...state,
+                firstName: action.payload.firstName,
+                lastName: action.payload.lastName,
+                gpa: action.payload.gpa,
+                imageUrl: action.payload.imageUrl
+            }
                 
         default:
             return state;

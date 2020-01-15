@@ -13,7 +13,7 @@ class AddStudent extends Component {
         const lastName = this.getLastName.value;
         const email = this.getEmail.value;
         const gpa = this.getGPA.value;
-        const imageURL = "http://i.imgur.com/AItCxSs.jpg";
+        const imageUrl = "http://i.imgur.com/AItCxSs.jpg";
         const campusId = 0;
 
         //  creates object
@@ -23,7 +23,7 @@ class AddStudent extends Component {
             lastName,
             email,
             gpa,
-            imageURL,
+            imageUrl,
             createdAt: new Date(),
             updatedAt: new Date(),
             campusId

@@ -1,9 +1,10 @@
 //ACTION TYPES:
-const FETCH_CAMPUSES = "FETCH_CAMPUSES"
-const REMOVE_CAMPUS = "REMOVE_CAMPUS"
-const ADD_CAMPUS = "ADD_CAMPUS"
+const FETCH_CAMPUSES = "FETCH_CAMPUSES";
+const REMOVE_CAMPUS = "REMOVE_CAMPUS";
+const ADD_CAMPUS = "ADD_CAMPUS";
+const EDIT_CAMPUS = "EDIT_CAMPUS";
 
-var arrayOfCampusFromAPI = [ 
+var arrayOfCampusesFromAPI = [ 
     {
         "id": 99,
         "campusName": "Hunter College",
@@ -35,7 +36,7 @@ var arrayOfCampusFromAPI = [
         "campusStudents":5
     },
     {
-        "id": 99,
+        "id": 85,
         "campusName": "Brooklyn Tech",
         "campusLocation": "Bronx",
         "imageURL": "https://i.imgur.com/HQw3fzsh.jpg",
@@ -71,6 +72,14 @@ const addCampus = (campus) => {
     }
 }
 
+const editCampus = (campus) => {
+    return {
+        type: EDIT_CAMPUS,
+        payload: campus
+    }
+}
+
+
 //THUNK CREATOR
 //thunking allows asynchronous, which is fancy talk for
 //saying I can call this function and it will execute
@@ -78,7 +87,7 @@ const addCampus = (campus) => {
 //once complete will be outputed after call stack is empty
 export const fetchCampusesThunk = () => (dispatch) => {
 
-    dispatch(fetchCampuses(arrayOfCampusFromAPI));
+    dispatch(fetchCampuses(arrayOfCampusesFromAPI));
 }
 
 export const removeCampusThunk = (id) => (dispatch) =>{
@@ -89,6 +98,11 @@ export const addCampusThunk = (campus) => (dispatch) => {
     dispatch(addCampus(campus));
 }
 
+export const editCampusThunk = (campus) => (dispatch) => {
+    let resolvedActionObject = editCampus(campus); 
+    dispatch(resolvedActionObject);
+}
+
 //REDUCER FUNCTION
 export default (state = [], action) => {
     switch (action.type) {
@@ -97,8 +111,35 @@ export default (state = [], action) => {
         case REMOVE_CAMPUS:
             return state.filter(campus => campus.id !== action.payload);
         case ADD_CAMPUS:
-            arrayOfCampusFromAPI = [...arrayOfCampusFromAPI, action.payload];
+            arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.payload];
             return [...state, action.payload];
+        case EDIT_CAMPUS:
+                arrayOfCampusesFromAPI = state.map((campus) => {
+                    if (campus.id === action.payload.id) {
+                        return {
+                        ...campus,
+                        id: action.payload.id,
+                        campusName: action.payload.campusName,
+                        campusLocation: action.payload.campusLocation,
+                        campusDescription: action.payload.campusDescription,
+                        imageUrl: action.payload.imageUrl
+                        }
+                    } 
+                    else return campus;
+                })
+            return state.map((campus) => {
+                    if (campus.id === action.payload.id) {
+                        return {
+                        ...campus,
+                        id: action.payload.id,
+                        campusName: action.payload.campusName,
+                        campusLocation: action.payload.campusLocation,
+                        campusDescription: action.payload.campusDescription,
+                        imageUrl: action.payload.imageUrl
+                        }
+                    } 
+                    else return campus;
+                })
         default:
             return state;
     }

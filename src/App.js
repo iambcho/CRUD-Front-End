@@ -16,6 +16,7 @@ import EditStudent from './components/container/EditStudent';
 import AllCampuses from "./components/container/AllCampuses";
 import SingleCampus from "./components/container/SingleCampus";
 import AddCampus from "./components/container/AddCampus";
+import EditCampus from './components/container/EditCampus';
 
 //This is needed in order to create a SPA (Single Page Application)
 //SPA's are useful in the sense that they allow the client to 
@@ -41,6 +42,7 @@ class AppContainer extends Component {
     const SingleCampusComponent = () => <SingleCampus/>
     const AllCampusesComponent = () => <AllCampuses/>
     const AddCampusComponent = () => <AddCampus/>
+    const EditCampusComponent = () => <EditCampus/>
 
     return (
       <div>
@@ -63,6 +65,8 @@ class AppContainer extends Component {
                 <Route exact path ="/single_campus" render = {SingleCampusComponent}/>
                 <Route exact path="/campuses" render={AllCampusesComponent}/>
                 <Route exact path="/add_campus" render={AddCampusComponent}/>
+                <Route exact path="/edit_campus" render={EditCampusComponent}/>
+
               </div>
           </div>
           </Switch>

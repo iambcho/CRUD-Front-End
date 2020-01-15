@@ -8,12 +8,14 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const SingleCampusView = (props) => {
+
+    console.log("displaying campus");
+    const{campus, getCurrentCampus} = props;
+
     const style = {
         color: 'white',
         textDecoration: 'none'
     }
-
-    const{campus} = props;
 
     return(
         <div className="container"> 
@@ -32,6 +34,7 @@ const SingleCampusView = (props) => {
                 <p id = "campus-description">{campus.campusDescription}</p>
                 <p id = "campus-locations">{campus.campusLocation}</p>
                 <br/>
+                <Link to="/edit_campus"><button className = "Edit-Campus" onClick={() => getCurrentCampus(campus)}>Edit</button></Link>
                 <p>Students on Campus</p>
                 {/* Cannot use if else so need turnary operator */}
                 {
@@ -43,7 +46,6 @@ const SingleCampusView = (props) => {
                         <select className = "Select-Campus">
                             <option value = "SELECT">SELECT</option>
                         </select>
-                        <button className = "Edit-Campus">Edit</button>
                     </div>
                 }
                 <button /**Handle click event which should add existing students to this campus */>Add Students</button>

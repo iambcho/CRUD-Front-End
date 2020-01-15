@@ -23,8 +23,8 @@ const AppView = () => {
           </div>
           <div className="App">
             <header className="App-header">
+            <img id = "main-image"src ="https://www.newsobserver.com/latest-news/mpxiqh/picture233585087/alternates/FREE_1140/unnamed.jpg" alt = "not found"></img>
             <h1 id = "main-page">Students and Campuses Home Page</h1>
-            <img src ="https://gocommandoapp.com/wp-content/uploads/2017/09/733a360b-a9f8-4204-ab5e-570000ac24f1.jpeg" alt = "not found"></img>
             </header>
           </div>
       </div>

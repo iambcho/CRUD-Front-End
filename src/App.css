@@ -148,8 +148,13 @@ input[type=number].studentID {
     -moz-appearance:textfield; /* Firefox */
 }
 #main-page{
-  padding-top: 25%;
-  padding-bottom: 25%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#main-image{
+  width: 100%;
+  max-width: 60%;
 }
 /* p {
   display: inline-flex;

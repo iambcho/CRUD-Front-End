@@ -9,7 +9,7 @@ import {Link} from 'react-router-dom';
 
 const AllStudentsView = (props) => {
     //object destructuring that takes students and getCurrentStudent from props
-    const {students, getCurrentStudent} = props;
+    const {students, getCurrentStudent, removeStudent} = props;
     const style = {
         color: 'white',
         textDecoration: 'none',
@@ -33,21 +33,24 @@ const AllStudentsView = (props) => {
                     ? <div> <p>There are no students</p> </div> 
                     : <div className="all-students-container">  
                         {/* Traverse through every student and make a Link to that individual student*/}
-                        {students.map(student => 
-                            <Link to="/single_student" >
-                                {/* This is how we connect all students to single students, when we create a Link to
+
+                        {/* This is how we connect all students to single students, when we create a Link to
                                 each of the individual students, we give an onclick function that updates the
                                 state student. Basically for every student that we generate this div for, it will
                                 have a getCurrentStudent function that when this student is clicked will update the state
                                 labeled student: with the object student itself and we can then use this info
                                 in single student view*/}
+                        {students.map(student => 
+                        
                                 <div className = "all-students-box" onClick={() => getCurrentStudent(student)}>
-                                    {/* <img src={student.imageUrl} width="100" height="100" onClick={() => addStudent(studentToAdd)}></img> */}
+                                    
+                                    <div className="close-out"><button onClick={() => removeStudent(student.id)}>x</button></div>
+                                   
                                     <img src={student.imageUrl} width="80" height="80" alt = "not found"></img>
                                     <p>{student.firstName} {student.lastName}</p>
                                     <p>Campus Name</p>
-                                </div>
-                            </Link>)
+                                    <Link to="/single_student" ><div>Select Student</div></Link>
+                                </div>)
                         }
                     </div>
                 } 

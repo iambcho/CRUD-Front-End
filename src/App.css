@@ -49,7 +49,7 @@
 .all-students-box, .all-campuses-box {
   display: inline-block;
   width: 120px;
-  padding: 20px;
+  padding: 10px 20px 20px 20px;
   margin: 10px;
   background-color: white;
   border: 3px solid #667292;
@@ -63,6 +63,10 @@
   color: black;
   font-size: small;
   
+}
+
+.all-campuses-box p {
+  color: black;
 }
 
 ul {
@@ -156,7 +160,13 @@ input[type=number].studentID {
   width: 100%;
   max-width: 60%;
 }
-/* p {
-  display: inline-flex;
-  margin:0;
-} */
+
+.close-out {
+  display:flex;
+  justify-content: flex-end;
+  padding: 0px 0px 5px 0px;
+}
+
+.close-out button{
+  color:red;
+}

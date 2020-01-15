@@ -109,7 +109,7 @@ export default (state = [], action) => {
         case FETCH_CAMPUSES:
             return action.payload;
         case REMOVE_CAMPUS:
-            return state.filter(campus => campus.id !== action.payload);
+            return arrayOfCampusesFromAPI = arrayOfCampusesFromAPI.filter(campus => campus.id !== action.payload);
         case ADD_CAMPUS:
             arrayOfCampusesFromAPI = [...arrayOfCampusesFromAPI, action.payload];
             return [...state, action.payload];

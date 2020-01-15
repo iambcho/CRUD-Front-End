@@ -1,6 +1,6 @@
 // ACTION TYPES;
 const DELETE_STUDENT = "DELETE_STUDENT";
-const EDIT_STUDENT = "EDIT_STUDENT";
+// const EDIT_STUDENT = "EDIT_STUDENT";
 const CURR_STUDENT = "CURR_STUDENT";
 
 // ACTION CREATOR;
@@ -70,14 +70,14 @@ export default (state = {}, action) => {
         //     return [...state, action.payload]
         case CURR_STUDENT:
             return action.payload;
-        case EDIT_STUDENT:
-            return {
-                ...state,
-                firstName: action.payload.firstName,
-                lastName: action.payload.lastName,
-                gpa: action.payload.gpa,
-                imageUrl: action.payload.imageUrl
-            }
+        // case EDIT_STUDENT:
+        //     return {
+        //         ...state,
+        //         firstName: action.payload.firstName,
+        //         lastName: action.payload.lastName,
+        //         gpa: action.payload.gpa,
+        //         imageUrl: action.payload.imageUrl
+        //     }
                 
         default:
             return state;

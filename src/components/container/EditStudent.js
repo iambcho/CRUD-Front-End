@@ -61,6 +61,7 @@ class EditStudent extends Component {
             imageUrl
         }
         this.props.editStudent(newStudent);
+        this.props.getCurrentStudent(newStudent);
         //dont need get current student because edit student updates the student state
         // this.props.getCurrentStudent(newStudent);
         // console.log(newStudent);
@@ -96,7 +97,7 @@ class EditStudent extends Component {
                             <input type = "submit" value = "Save"></input>                              
                         </form>
                         <br/>
-                        <Link to="/single_student">Back</Link>
+                        <Link to={`/single_student/${this.state.id}`}>Back</Link>
                     </header>
                 </div>
             </div>

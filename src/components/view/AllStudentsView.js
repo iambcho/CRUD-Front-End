@@ -42,14 +42,12 @@ const AllStudentsView = (props) => {
                                 in single student view*/}
                         {students.map(student => 
                         
-                                <div className = "all-students-box" onClick={() => getCurrentStudent(student)}>
-                                    
-                                    <div className="close-out"><button onClick={() => removeStudent(student.id)}>x</button></div>
-                                   
+                                <div className = "all-students-box" onClick={() => getCurrentStudent(student)}>                                    
+                                    <div className="close-out"><button onClick={() => removeStudent(student.id)}>x</button></div>                                   
                                     <img src={student.imageUrl} width="80" height="80" alt = "not found"></img>
                                     <p>{student.firstName} {student.lastName}</p>
                                     <p>Campus Name</p>
-                                    <Link to="/single_student" ><div>Select Student</div></Link>
+                                    <Link to={`/single_student/${student.id}`} ><div>Select Student</div></Link>
                                 </div>)
                         }
                     </div>

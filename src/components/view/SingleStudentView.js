@@ -13,7 +13,7 @@ const SingleStudentsView = (props) =>{
         textDecoration: 'none'
     }
 
-    const{student, getCurrentStudent} = props; //the view will only get a student from the props 
+    const{student} = props; //the view will only get a student from the props 
 
     return(
         <div className="container"> 
@@ -32,7 +32,7 @@ const SingleStudentsView = (props) =>{
                     <p id = "gpa">GPA: {student.gpa}</p>
                     <br/>
 
-                    <Link to="/edit_student"><button onClick={() => getCurrentStudent(student)}>Edit</button></Link>
+                    <Link to="/edit_student"><button >Edit</button></Link>
 
                     {/* Cannot use if else so need turnary operator */}
                     {

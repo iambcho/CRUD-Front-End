@@ -60,7 +60,7 @@ class AppContainer extends Component {
                 <Route exact path="/students" render={AllStudentsComponent}/>
                 {/* Add Students comment later You DUmmy */}
                 <Route exact path="/add_students" render={AddStudentComponent}/> 
-                <Route exact path="/single_student" render={SingleStudentComponent}/>
+                <Route exact path="/single_student/:studentId" render={SingleStudentComponent}/>
                 <Route exact path="/edit_student" render={EditStudentComponent}/>
                 <Route exact path ="/single_campus" render = {SingleCampusComponent}/>
                 <Route exact path="/campuses" render={AllCampusesComponent}/>

@@ -19,11 +19,18 @@ import { currStudentThunk} from "./../../store/utilities/student";
 // import { currStudentThunk, editStudentThunk } from "./../../store/utilities/student";
 
 class SingleStudentContainer extends Component {
-    componentDidMount=()=>{
+    //componentDidMount=()=>{
+        /*
+        we do not need a componentdidmount and the last line in this function
+        because the second we click on a single student, we call getCurrentStudent
+        and pass the student in as a prop that can be accessed directly to update
+        the student state and can thus render the student directly without calling 
+        it in the didMount
+        */
         // console.log("singlestuden: " ,this.props.student)
-        this.props.getCurrentStudent(this.props.student);
+        // this.props.getCurrentStudent(this.props.student);
 
-    }
+    //}
 
     render(){
         return(

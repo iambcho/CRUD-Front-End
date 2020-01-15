@@ -1,5 +1,4 @@
 let arrayOfStudentsFromAPI = [
-
     {
     "id": 4,
     "firstName": "Jerry",
@@ -125,17 +124,29 @@ export default (state = [], action) => {
             arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.payload];
             return [...state, action.payload]
         case EDIT_STUDENT:
+                arrayOfStudentsFromAPI = state.map((student) => {
+                    if (student.id === action.payload.id) {
+                        return {
+                        ...student,
+                        firstName: action.payload.firstName,
+                        lastName: action.payload.lastName,
+                        gpa: action.payload.gpa,
+                        imageUrl: action.payload.imageUrl
+                        }
+                    } 
+                    else return student;
+                })
             return state.map((student) => {
-                if (student.id === action.payload.id) {
-                    return {
-                    ...student,
-                    firstName: action.payload.firstName,
-                    lastName: action.payload.lastName,
-                    gpa: action.payload.gpa,
-                    imageUrl: action.payload.imageUrl
-                    }
-                } 
-                else return student;
+                    if (student.id === action.payload.id) {
+                        return {
+                        ...student,
+                        firstName: action.payload.firstName,
+                        lastName: action.payload.lastName,
+                        gpa: action.payload.gpa,
+                        imageUrl: action.payload.imageUrl
+                        }
+                    } 
+                    else return student;
                 })
         default:
             return state;

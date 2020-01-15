@@ -40,6 +40,7 @@ class AddStudent extends Component {
         this.getLastName.value = '';
         this.getEmail.value = '';
         this.getGPA.value = '';
+        this.getID.value = '';
     }
 
     //  renders form for AddStudents

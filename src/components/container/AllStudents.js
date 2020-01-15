@@ -19,7 +19,7 @@ import { connect } from "react-redux";
 // page based on teh action we want to preform
 import { fetchStudentsThunk} from "./../../store/utilities/students"; //this is to display all students from students store
 import { currStudentThunk } from "./../../store/utilities/student"; //this allows us to get the current student info for single student compoenent (check views to udnerstand)
-
+import {removeStudentThunk } from "./../../store/utilities/students";
 
 /*
 General lay out of how page is works
@@ -41,7 +41,7 @@ class AllStudents extends Component {
     render() {
         return (
             //we pass the state into this component, so we can actually load all the students
-            <AllStudentsView students = {this.props.students} getCurrentStudent= {this.props.getCurrentStudent}/>
+            <AllStudentsView students = {this.props.students} getCurrentStudent= {this.props.getCurrentStudent} removeStudent={this.props.removeStudent}/>
         )
     }
 }
@@ -62,7 +62,8 @@ const mapState = (state) => {
   const mapDispatch = (dispatch) => {
     return {
       fetchAllStudents: () => dispatch(fetchStudentsThunk()),
-      getCurrentStudent: (student) => dispatch(currStudentThunk(student))
+      getCurrentStudent: (student) => dispatch(currStudentThunk(student)),
+      removeStudent: (id) => dispatch(removeStudentThunk(id))
     }
   }
   

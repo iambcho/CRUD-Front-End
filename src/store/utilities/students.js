@@ -119,7 +119,7 @@ export default (state = [], action) => {
         case FETCH_STUDENTS:
             return action.payload;
         case REMOVE_STUDENT:
-            return state.filter(student => student.id !== action.payload);
+            return arrayOfStudentsFromAPI = arrayOfStudentsFromAPI.filter(student => student.id !== action.payload);
         case ADD_STUDENT:
             arrayOfStudentsFromAPI = [...arrayOfStudentsFromAPI, action.payload];
             return [...state, action.payload]

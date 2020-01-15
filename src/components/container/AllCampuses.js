@@ -12,6 +12,8 @@ import AllCampusesView from "./../view/AllCampusesView";
 import { connect } from "react-redux";
 import { fetchCampusesThunk } from "./../../store/utilities/campuses";
 import { currCampusThunk } from "./../../store/utilities/campus";
+import { removeCampusThunk } from "./../../store/utilities/campuses";
+import { removeStudentThunk } from '../../store/utilities/students';
 
 class AllCampuses extends Component {
     componentDidMount() {
@@ -20,7 +22,7 @@ class AllCampuses extends Component {
 
     render() {
         return (
-            <AllCampusesView campuses = {this.props.campuses} campus = {this.props.campus} getCurrentCampus={this.props.getCurrentCampus}/>
+            <AllCampusesView campuses = {this.props.campuses} campus = {this.props.campus} getCurrentCampus={this.props.getCurrentCampus} removeCampus={this.props.removeCampus}/>
         )
     }
 }
@@ -35,7 +37,8 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
     return {
         fetchAllCampuses: () => dispatch(fetchCampusesThunk()),
-        getCurrentCampus: (campus) => dispatch(currCampusThunk(campus))
+        getCurrentCampus: (campus) => dispatch(currCampusThunk(campus)),
+        removeCampus: (id) => dispatch(removeCampusThunk(id))
     }
 }
 

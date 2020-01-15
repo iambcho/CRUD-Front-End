@@ -6,7 +6,7 @@ const AllCampusesView = (props) => {
         color: 'white',
         textDecoration: 'none'
     }
-    const {campuses, getCurrentCampus} = props;
+    const {campuses, getCurrentCampus, removeCampus} = props;
     
     return (
         <div className="container">
@@ -30,14 +30,16 @@ const AllCampusesView = (props) => {
                         : <div className="all-campuses-container">
                             {campuses.map(campus =>
 
-                                <Link to="/single_campus" ><div className="all-campuses-box" onClick={()=> getCurrentCampus(campus)}>
-                                    
-                                <img src={campus.imageURL} width="100" height="100" alt ="not found"></img>
+                                <div className="all-campuses-box" onClick={()=> getCurrentCampus(campus)}>
 
-                                <p>{campus.campusName}</p>
-                                {/* <p>{campus.campusLocation}</p> */}
-                                {/* <p>{campus.campusDescription}</p> */}
-                                </div></Link>)
+                                    <div className="close-out"><button onClick={() => removeCampus(campus.id)}>x</button></div>    
+                                    <img src={campus.imageURL} width="100" height="100" alt ="not found"></img>
+
+                                    <p>{campus.campusName}</p>
+                                    {/* <p>{campus.campusLocation}</p> */}
+                                    {/* <p>{campus.campusDescription}</p> */}
+                                    <Link to="/single_campus" ><div>Select Campus</div></Link>
+                                </div>)
                             }
                         </div>
                     }

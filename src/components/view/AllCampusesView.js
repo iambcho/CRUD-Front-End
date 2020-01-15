@@ -2,15 +2,19 @@ import React from "react";
 import { Link } from 'react-router-dom';
 
 const AllCampusesView = (props) => {
+    const style = {
+        color: 'white',
+        textDecoration: 'none'
+    }
     const {campuses, getCurrentCampus} = props;
     
     return (
         <div className="container">
             <div className = "nav-bar">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/students">All Students</Link></li>
-                    <li><Link to="/campuses">All Campuses</Link></li>
+                <li><Link style = {style} to="/">Home</Link></li>
+                <li><Link style = {style} to="/students">All Students</Link></li>
+                <li><Link style = {style} to="/campuses">All Campuses</Link></li>
                 </ul>
             </div>
 

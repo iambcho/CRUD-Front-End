@@ -8,21 +8,24 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleStudentsView = (props) =>{
+    const style = {
+        color: 'white',
+        textDecoration: 'none'
+    }
 
     const{student, getCurrentStudent} = props; //the view will only get a student from the props 
 
-
     return(
         <div className="container"> 
-            <h2>Show Student</h2>
             <div className = "nav-bar">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/students">All Students</Link></li>
-                    <li><Link to="/campuses">All Campuses</Link></li>
+                <li><Link style = {style} to="/">Home</Link></li>
+                <li><Link style = {style} to="/students">All Students</Link></li>
+                <li><Link style = {style} to="/campuses">All Campuses</Link></li>
                 </ul>
             </div>
             <div className = "App">
+            <h1>Show Student</h1>
                 <div className = "Student">
                     <img src = {student.imageUrl} width="100" height="100" alt ="not found"></img>
                     <p id = "student-name">{student.firstName} {student.lastName}</p>

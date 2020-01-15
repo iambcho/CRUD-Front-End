@@ -58,7 +58,7 @@ class AddCampus extends Component {
                         <form onSubmit={this.handleSubmit}>
                             Campus Name:
                             <input type="text" required ref={(input)=>this.getCampusName = input} placeholder="Campus Name"/>
-                            {/* <br/> */}
+                            <br/>
 
                             Campus ID:
                             <input type="number" required ref={(input)=>this.getCampusId = input} placeholder="123456"/>

@@ -1,35 +1,39 @@
-// - [ ] Write a component to display a single student with the following information:
-//   - [ ] The student's full name, email, image, and gpa
-//   - [ ] The name of their campus (or a helpful message if they don't have one)
-// - [ ] Display the appropriate student when the url matches `/students/:studentId`
-// - [ ] Clicking on a student from the all-students view should navigate to show that student in the single-student view
-
-// - [ ] Clicking on the name of a student in the single-campus view should navigate to show that student in the single-student view
-// - [ ] Clicking on the name of a campus in the single-student view should navigate to show that campus in the single-campus view
-
+/**
+ * Comments are done quickly, cannot ensure all information presented is accurate or 
+ * up to date in future time, but the purpose of these coments are to help
+ * understand the tech we are learning at our bootcamp.
+ * Date: 1/14/20
+ */
 import React from "react";
 import { Link } from "react-router-dom";
 
 const SingleStudentsView = (props) =>{
-    console.log("displaying single students")
-    const{student} = props; //the view will only get a student from the props 
+    const style = {
+        color: 'white',
+        textDecoration: 'none'
+    }
+
+    const{student, getCurrentStudent} = props; //the view will only get a student from the props 
 
     return(
         <div className="container"> 
-            <h2>Show Student</h2>
             <div className = "nav-bar">
                 <ul>
-                    <li><Link to="/">Home</Link></li>
-                    <li><Link to="/students">All Students</Link></li>
-                    <li><Link to="/campuses">All Campuses</Link></li>
+                <li><Link style = {style} to="/">Home</Link></li>
+                <li><Link style = {style} to="/students">All Students</Link></li>
+                <li><Link style = {style} to="/campuses">All Campuses</Link></li>
                 </ul>
             </div>
             <div className = "App">
+            <h1>Show Student</h1>
                 <div className = "Student">
                     <img src = {student.imageUrl} width="100" height="100" alt ="not found"></img>
                     <p id = "student-name">{student.firstName} {student.lastName}</p>
                     <p id = "gpa">GPA: {student.gpa}</p>
                     <br/>
+
+                    <Link to="/edit_student"><button onClick={() => getCurrentStudent(student)}>Edit</button></Link>
+
                     {/* Cannot use if else so need turnary operator */}
                     {
                         (student.campusId === null)
@@ -38,6 +42,7 @@ const SingleStudentsView = (props) =>{
                             <p>This student is registered to a campus</p>
                             <p> student.campusId</p> 
                             <select className = "Select-Campus">
+                                {/* Options should come from database */}
                                 <option value = "SELECT">SELECT</option>
                             </select>
                             <button className = "Change-Campus">Change Campus</button>

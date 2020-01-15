@@ -1,27 +1,16 @@
-/*
-*/
-
 import React, { Component } from 'react';
 import {Link } from 'react-router-dom';
 import './../../App.css';
 
-// Import view;
-// import AllStudentsView from "./../view/AllStudentsView";
-
 import { connect } from "react-redux";
-import { fetchStudentsThunk} from "./../../store/utilities/students";
-import {  currStudentThunk } from "./../../store/utilities/student";
-import { editStudentThunk } from "./../../store/utilities/students";
-
-
-
+import { fetchStudentsThunk, editStudentThunk} from "./../../store/utilities/students";
+import { currStudentThunk } from "./../../store/utilities/student";
 
 class EditStudent extends Component {
     constructor(props) {
         super(props);
-
-      //THIS IS DESTRUCTURING
-        // const {firstName, lastName, gpa, imageUrl} = this.props.student;
+        //THIS IS DESTRUCTURING
+        //const {firstName, lastName, gpa, imageUrl} = this.props.student;
 
         //but don't need to set equal, it can implicitly understand (see example below below)
         this.state = {
@@ -32,36 +21,39 @@ class EditStudent extends Component {
             imageUrl: ""
         }
     }
+    
     async componentDidMount () {
-        await this.props.fetchAllStudents();
-        await this.props.getCurrentStudent();
-
-                const {id, firstName, lastName, gpa, imageUrl} = this.props.student;
+        /**
+         * I commented out both awaits becaause upon
+         * didmount all we want to do is access the current student
+         * and that is updated the moment you click on edit (refer to
+         * single student view), thus you dont need getCurrentStudent calls
+         * and the fetchAllStudents is to just print out all the students.
+         * If you want check is students state is updated check console
+         * on EDIT action
+         */
+        // await this.props.fetchAllStudents();
+        // await this.props.getCurrentStudent();
+        // await this.props.getCurrentStudent(this.props.student);
+        // this.props.getCurrentStudent(this.newStudent);
+        const {id, firstName, lastName, gpa, imageUrl} = this.props.student;
+        //fetching current students info and updating our current state with it
         this.setState(
             {
                 id, firstName, lastName, gpa, imageUrl
             }
         )
-      }
+    }
 
+    handleChange = (event) => {
+        this.setState({[event.target.name]: event.target.value })
+    }
 
-
-    
-      handleChange = (event) => {
-        this.setState({ [event.target.name]: event.target.value })
-      }
-
-    //   onClickStudent = (event) => {
-    //       return (
-            
-    //       )
-        
-    //   }
     handleEdit = (e) => {
         e.preventDefault();
        const {id, firstName, lastName, gpa, imageUrl} = this.state;
 
-         let newStudent = {
+        let newStudent = {
             id,
             firstName, 
             lastName, 
@@ -69,35 +61,47 @@ class EditStudent extends Component {
             imageUrl
         }
         this.props.editStudent(newStudent);
-        console.log(newStudent);
+        //dont need get current student because edit student updates the student state
+        // this.props.getCurrentStudent(newStudent);
+        // console.log(newStudent);
         //this.props.dispatch({type: 'EDIT_STUDENT', payload: newStudent});
     }
-
-      render() {
-        
-        return (
-              
-            //<EditStudent students = {this.props.students} student = {this.props.student} getCurrentStudent= {this.props.getCurrentStudent}/>
-            <div>
-                <form onSubmit={this.handleEdit}>
-                    First name:
-                    <input type = "text" name="firstName" onChange={this.handleChange} value={this.state.firstName}></input><br/>
-                    Last name: 
-                    <input type = "text" name="lastName" onChange={this.handleChange} value={this.state.lastName}></input><br/>
-                    GPA: 
-                    <input type = "text" name="gpa" onChange={this.handleChange} value={this.state.gpa}></input><br/>
-                    Student image:
-                    <input type = "text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}></input><br/>
-                    <input type = "submit" ></input>
+    render() {
+        const style = {
+            color: 'white',
+            textDecoration: 'none'
+        }
+        return (              
+            <div className="container">
+                <div className = "nav-bar">
+                    <ul>
+                        <li><Link style = {style} to="/">Home</Link></li>
+                        <li><Link style = {style} to="/students">All Students</Link></li>
+                        <li><Link style = {style} to="/campuses">All Campuses</Link></li>
+                    </ul>
+                </div>
                     
-                    
-                    
-                </form>
-
-                <Link to="/single_student">Back</Link>
+                <div className="App">    
+                    <header className="App-header">
+                        <h1>Edit Student</h1>
+                        <form onSubmit={this.handleEdit}>
+                            First name:
+                            <input type = "text" name="firstName" onChange={this.handleChange} value={this.state.firstName}></input><br/>
+                            Last name: 
+                            <input type = "text" name="lastName" onChange={this.handleChange} value={this.state.lastName}></input><br/>
+                            GPA: 
+                            <input type = "number" min="0" max="4" step="0.1" name="gpa" onChange={this.handleChange} value={this.state.gpa}></input><br/>
+                            Student image:
+                            <input type = "text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}></input><br/>
+                            <input type = "submit" value = "Save"></input>                              
+                        </form>
+                        <br/>
+                        <Link to="/single_student">Back</Link>
+                    </header>
+                </div>
             </div>
-            )
-      }
+        )
+    }
 }
 
 // Declaration for mapStateToProps;
@@ -105,22 +109,20 @@ class EditStudent extends Component {
 // The values of these keys reflect the value of the piece of state in your Redux store;
 const mapState = (state) => {
     return {
-      students: state.students,
-      student: state.student
+        students: state.students,
+        student: state.student
     }
-  }
+}
   
-  // Declaration for mapDispatchToProps;
-  // The keys in this returned object will be on your component's `props` object as well;
-  // The values of these keys are anonymous functions that will dispatch imported action creators or thunks so that a component can communicate with the appropriate reducer function(s);
-  const mapDispatch = (dispatch) => {
+// Declaration for mapDispatchToProps;
+// The keys in this returned object will be on your component's `props` object as well;
+// The values of these keys are anonymous functions that will dispatch imported action creators or thunks so that a component can communicate with the appropriate reducer function(s);
+const mapDispatch = (dispatch) => {
     return {
-      fetchAllStudents: () => dispatch(fetchStudentsThunk()),
-      getCurrentStudent: (student) => dispatch(currStudentThunk(student)),
-      editStudent: (student) => dispatch(editStudentThunk(student))
-
-
+        fetchAllStudents: () => dispatch(fetchStudentsThunk()),
+        getCurrentStudent: (student) => dispatch(currStudentThunk(student)),
+        editStudent: (student) => dispatch(editStudentThunk(student))
     }
-  }
-  
-  export default connect(mapState, mapDispatch)(EditStudent);
+}
+
+export default connect(mapState, mapDispatch)(EditStudent);

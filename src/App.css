@@ -17,10 +17,10 @@
   }
 }
 
-.App-header {
+.App-header, body {
   background-color: #8d9db6;
-  min-height: 100vh;
-  display: flex;
+  /* min-height: 100vh; */
+  /* display: flex; */
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -41,22 +41,32 @@
   }
 }
 
-.all-students-container {
-  display: flex;
+.all-students-container, .all-campuses-container{
+  /* display: block;  */
+  float: left;
 }
 
-.all-students-box {
-  padding: 20px;
+.all-students-box, .all-campuses-box {
+  display: inline-block;
+  width: 120px;
+  padding: 10px 20px 20px 20px;
   margin: 10px;
-  background-color: #f1e3dd;
+  background-color: white;
   border: 3px solid #667292;
-  
 }
+
+.all-students-box:hover , .all-campuses-box:hover{
+  background-color: #bbd4ec;
+} 
 
 .all-students-box p {
   color: black;
   font-size: small;
   
+}
+
+.all-campuses-box p {
+  color: black;
 }
 
 ul {
@@ -66,17 +76,36 @@ ul {
 }
 
 li {
+  font-weight: bold;
+  display: inline-flex;
   float: left;
-  padding: 20px;
-  
-  
+  padding-top: 5px;
+  padding-bottom: 5px;
+  padding-left: 10px; 
+  padding-right: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  font-family: monospace;
+}
+
+li:hover{
+  background-color: rgb(106, 123, 168);
+}
+
+h1{
+  /* display: inline-block; */
+  font-family: monospace;
+  font-size: 35px;
+  margin: 0;
+  padding: 0;
 }
 
 .nav-bar {
 
   width: 100%;
-  height: 75px;
-  background-color: #667292;
+  height: 40px;
+  padding-top: 7px;
+  background-color: #2A293E;
 }
 
 /* label, input, button {
@@ -100,9 +129,11 @@ input, button, select {
   -moz-box-sizing: content-box;
   -webkit-box-sizing: content-box;
   box-sizing: content-box;
-  border: 1px solid #f90;
+  border: 1px solid #667292;
   background-color: #fff;
 }
+
+
 input:focus {
   outline: none;
   background-color: #ffa;
@@ -119,4 +150,23 @@ input::-webkit-inner-spin-button.studentID {
 
 input[type=number].studentID {
     -moz-appearance:textfield; /* Firefox */
+}
+#main-page{
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+#main-image{
+  width: 100%;
+  max-width: 60%;
+}
+
+.close-out {
+  display:flex;
+  justify-content: flex-end;
+  padding: 0px 0px 5px 0px;
+}
+
+.close-out button{
+  color:red;
 }

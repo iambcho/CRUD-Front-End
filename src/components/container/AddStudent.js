@@ -3,22 +3,20 @@ import {Link} from 'react-router-dom';
 import { connect } from 'react-redux';
 import './../../App.css';
 
-
-//  turn into function that takes in props
-//  and only renders
 class AddStudent extends Component {
     handleSubmit = (event) => {
         event.preventDefault();
 
+        //  create key:values for new object
         const id=this.getID.value;
         const firstName = this.getFirstName.value;
         const lastName = this.getLastName.value;
         const email = this.getEmail.value;
         const gpa = this.getGPA.value;
-
         const imageUrl = "http://i.imgur.com/AItCxSs.jpg";
         const campusId = 0;
 
+        //  creates object
         const data = {
             id,
             firstName,
@@ -30,24 +28,34 @@ class AddStudent extends Component {
             updatedAt: new Date(),
             campusId
         }
-        // console.log(data);
+
+        //  dispatches object of Student
         this.props.dispatch({
             type:'ADD_STUDENT',
-            payload: data});
+            payload: data
+        });
+
+        //  clears forms of recently entered values
         this.getFirstName.value = '';
         this.getLastName.value = '';
         this.getEmail.value = '';
         this.getGPA.value = '';
+        this.getID.value = '';
     }
 
+    //  renders form for AddStudents
     render() {
+        const style = {
+            color: 'white',
+            textDecoration: 'none'
+        }
         return(
             <div className="container">
                 <div className = "nav-bar">
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/students">All Students</Link></li>
-                        <li><Link to="/campuses">All Campuses</Link></li>
+                        <li><Link style={style} to="/">Home</Link></li>
+                        <li><Link style={style} to="/students">All Students</Link></li>
+                        <li><Link style={style} to="/campuses">All Campuses</Link></li>
                     </ul>
                 </div>
 
@@ -72,7 +80,7 @@ class AddStudent extends Component {
                             <br/>
 
                             Student ID:
-                            <input className="studentID" type="number" required ref={(input)=>this.getID = input} placeholder="123456"/ >
+                            <input className="studentID" type="number" required ref={(input)=>this.getID = input} placeholder="123456"/>
                             <br/>
 
                             <input type="submit" value="Add Student"/>
@@ -82,7 +90,7 @@ class AddStudent extends Component {
                     </header>
                 </div>
             </div>
-        );
+        )
     }
 }
 

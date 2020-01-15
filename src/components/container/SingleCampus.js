@@ -1,3 +1,9 @@
+/**
+ * Comments are done quickly, cannot ensure all information presented is accurate or 
+ * up to date in future time, but the purpose of these coments are to help
+ * understand the tech we are learning at our bootcamp.
+ * Date: 1/14/20
+ */
 import React, {Component} from "react";
 import "./../../App.css";
 
@@ -9,16 +15,17 @@ import SingleCampusView from "./../view/SingleCampusView";
 //thus SingleCampusContainer should have access
 //to current student, edit current student function, and current student fetch
 import {connect} from "react-redux";
-import { currCampusThunk, editCampusThunk} from "./../../store/utilities/campus";
+import { currCampusThunk } from "./../../store/utilities/campus";
+import {editCampusThunk} from "./../../store/utilities/campuses";
 
 class SingleCampusContainer extends Component{
     componentDidMount=()=>{
         console.log("The Campus is: ", this.props.campus)
-        this.props.currCampus(this.props.campus);
+        this.props.getCurrentCampus(this.props.campus);
     }
     render(){
         return(
-            <SingleCampusView campus = {this.props.campus} ></SingleCampusView>
+            <SingleCampusView campus = {this.props.campus} getCurrentCampus={this.props.getCurrentCampus}></SingleCampusView>
         )
     }
 }
@@ -32,7 +39,7 @@ const mapState = (state) => {
 const mapDispatch = (dispatch) => {
     return({
         edit: (campus) => dispatch(editCampusThunk(campus)),
-        currCampus: (campus) => dispatch(currCampusThunk(campus))
+        getCurrentCampus: (campus) => dispatch(currCampusThunk(campus))
     });
 }
 

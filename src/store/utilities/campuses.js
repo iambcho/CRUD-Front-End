@@ -26,16 +26,6 @@ var arrayOfCampusesFromAPI = [
         "campusStudents":undefined
     },
     {
-        "id": "",
-        "campusName": "",
-        "campusLocation": "",
-        "imageURL": "",
-        "campusDescription": "",
-        "createdAt": "2018-12-06T19:58:21.314Z",
-        "updatedAt": "2018-12-06T19:58:21.314Z",
-        "campusStudents":0
-    },
-    {
         "id": 1834,
         "campusName": "New York University",
         "campusLocation": "New York",

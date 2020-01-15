@@ -45,13 +45,17 @@ class AddStudent extends Component {
 
     //  renders form for AddStudents
     render() {
+        const style = {
+            color: 'white',
+            textDecoration: 'none'
+        }
         return(
             <div className="container">
                 <div className = "nav-bar">
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/students">All Students</Link></li>
-                        <li><Link to="/campuses">All Campuses</Link></li>
+                        <li><Link style={style} to="/">Home</Link></li>
+                        <li><Link style={style} to="/students">All Students</Link></li>
+                        <li><Link style={style} to="/campuses">All Campuses</Link></li>
                     </ul>
                 </div>
 

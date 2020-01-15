@@ -8,19 +8,26 @@ import React from 'react';
 import {Link} from 'react-router-dom';
 
 const SingleCampusView = (props) => {
+
     console.log("displaying campus");
     const{campus, getCurrentCampus} = props;
+
+    const style = {
+        color: 'white',
+        textDecoration: 'none'
+    }
+
     return(
         <div className="container"> 
-        <h2>Show Campus</h2>
         <div className = "nav-bar">
             <ul>
-                <li><Link to="/">Home</Link></li>
-                <li><Link to="/students">All Students</Link></li>
-                <li><Link to="/campuses">All Campuses</Link></li>
+                <li><Link style = {style} to="/">Home</Link></li>
+                <li><Link style = {style} to="/students">All Students</Link></li>
+                <li><Link style = {style} to="/campuses">All Campuses</Link></li>
             </ul>
         </div>
         <div className = "App">
+            <h1>Show Campus</h1>
             <div className = "Campus">
                 <img src = {campus.imageURL} width="100" height="100" alt ="not found"></img>
                 <p id = "campus-name">{campus.campusName}</p>

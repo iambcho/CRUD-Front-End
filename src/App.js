@@ -63,7 +63,6 @@ class AppContainer extends Component {
                 <Route exact path ="/single_campus" render = {SingleCampusComponent}/>
                 <Route exact path="/campuses" render={AllCampusesComponent}/>
                 <Route exact path="/add_campus" render={AddCampusComponent}/>
-
               </div>
           </div>
           </Switch>

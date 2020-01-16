@@ -1,7 +1,10 @@
 import React, { Component } from 'react';
-import {Link } from 'react-router-dom';
+//need withrouter in order to push into the history, and this allows the edit form to go back to
+//students page upon clicking submit
+import {Link, withRouter} from 'react-router-dom';
 import './../../App.css';
-
+//need this to compose a export of multiple components (in this case connect and withRouter)
+import { compose } from "redux";
 import { connect } from "react-redux";
 import { fetchCampusesThunk, editCampusThunk} from "./../../store/utilities/campuses";
 import { currCampusThunk } from "./../../store/utilities/campus";
@@ -17,7 +20,7 @@ class EditCampus extends Component {
             id: 0,
             campusName:"",
             campusLocation:"",
-            imageUrl: "",
+            imageURL: "",
             campusDescription:""
         }
     }
@@ -36,11 +39,11 @@ class EditCampus extends Component {
         // await this.props.getCurrentCampus();
         // await this.props.getCurrentCampus(this.props.campus);
         // this.props.getCurrentcampus(this.newcampus);
-        const {id, campusName, campusLocation, imageUrl, campusDescription} = this.props.campus;
+        const {id, campusName, campusLocation, imageURL, campusDescription} = this.props.campus;
         //fetching current campuses info and updating our current state with it
         this.setState(
             {
-                id, campusName, campusLocation, imageUrl, campusDescription
+                id, campusName, campusLocation, imageURL, campusDescription
             }
         )
     }
@@ -51,29 +54,34 @@ class EditCampus extends Component {
 
     handleEdit = (e) => {
         e.preventDefault();
-       const {id, campusName, campusLocation, imageUrl, campusDescription} = this.state;
+       const {id, campusName, campusLocation, imageURL, campusDescription} = this.state;
 
         let newCampus = {
             id,
             campusName, 
             campusLocation, 
-            imageUrl, 
+            imageURL, 
             campusDescription
         }
         this.props.editCampus(newCampus);
+        this.props.history.push("/campuses");
         //dont need get current campus because edit campus updates the campus state
         // this.props.getCurrentcampus(newcampus);
         // console.log(newcampus);
         //this.props.dispatch({type: 'EDIT_campus', payload: newcampus});
     }
     render() {
+        const style = {
+            color: 'white',
+            textDecoration: 'none'
+        }
         return (              
             <div className="container">
                 <div className = "nav-bar">
                     <ul>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/students">All Students</Link></li>
-                        <li><Link to="/campuses">All Campuses</Link></li>
+                        <li><Link style={style} to="/">Home</Link></li>
+                        <li><Link style={style} to="/students">All Students</Link></li>
+                        <li><Link style={style} to="/campuses">All Campuses</Link></li>
                     </ul>
                 </div>
                     
@@ -86,7 +94,7 @@ class EditCampus extends Component {
                             Campus Location: 
                             <input type = "text" name="campusLocation" onChange={this.handleChange} value={this.state.campusLocation}></input><br/>
                             Campus Image URL:
-                            <input type = "text" name="imageUrl" onChange={this.handleChange} value={this.state.imageUrl}></input><br/>
+                            <input type = "text" name="imageURL" onChange={this.handleChange} value={this.state.imageURL}></input><br/>
                             Campus Description
                             <input type = "text" name="campusDescription" onChange={this.handleChange} value={this.state.campusDescription}></input><br/>
                             <input type = "submit" value = "Save Changes"></input>                              
@@ -121,7 +129,10 @@ const mapDispatch = (dispatch) => {
     }
 }
 
-export default connect(mapState, mapDispatch)(EditCampus);
-
+// export default connect(mapState, mapDispatch)(EditCampus);
+export default compose(
+    withRouter,
+    connect(mapState, mapDispatch)
+  )(EditCampus);
 
 

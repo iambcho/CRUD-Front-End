@@ -1,8 +1,11 @@
-import React, { Component } from 'react';
-import {Link } from 'react-router-dom';
+import React, { Component }  from 'react';
+//need withrouter in order to push into the history, and this allows the edit form to go back to
+//students page upon clicking submit
+import {Link, withRouter} from 'react-router-dom';
 import './../../App.css';
-
-import { connect } from "react-redux";
+//need this to compose a export of multiple components (in this case connect and withRouter)
+import { compose } from 'redux';
+import { connect  } from "react-redux";
 import { fetchStudentsThunk, editStudentThunk} from "./../../store/utilities/students";
 import { currStudentThunk } from "./../../store/utilities/student";
 
@@ -62,6 +65,7 @@ class EditStudent extends Component {
         }
         this.props.editStudent(newStudent);
         this.props.getCurrentStudent(newStudent);
+        this.props.history.push("/students");
         //dont need get current student because edit student updates the student state
         // this.props.getCurrentStudent(newStudent);
         // console.log(newStudent);
@@ -126,4 +130,13 @@ const mapDispatch = (dispatch) => {
     }
 }
 
-export default connect(mapState, mapDispatch)(EditStudent);
+// export default connect(mapState, mapDispatch)(EditStudent);
+/**
+ * With the export we can only export one thing
+ * but we need to export both withRouter and connect
+ * as a result I use the compose component from the redux library to do it
+ */
+export default compose(
+    withRouter,
+    connect(mapState, mapDispatch)
+  )(EditStudent);

@@ -1,3 +1,4 @@
+import axios from 'axios';
 let arrayOfStudentsFromAPI = [
     {
     "id": 4,
@@ -94,11 +95,39 @@ const editStudent = (student) => {
 
 
 // THUNK CREATOR;
+/*To connect the front and the back end, we only need to:
+    -edit the thunks on the frontend
+        -edit with axios
+        -and then handle the response you get from the backend
+
+    -edits on the backend
+        -edit the routers to correspond to the axios calls
+        -sometimes need to make edits that affect back and front end:
+            -e.g., remove 
+                -need to delete it on the backend in the router using express
+                - and then send back a response to the frontend that it was deleted so that you can delete it from the front end state (FE, BE - two separate servers)
+*/
 export const fetchStudentsThunk = () => (dispatch) => {
+    //make axios call let data = my axios call here
+    console.log("IN FETCH STUDENTS");
+    axios.get("http://localhost:1234/api/students/")
+	.then((response) => {
+		console.log(response);
+		    // }
+		    // );
+	    })
+        .then((error) => {
+		console.log(error);
+	    });
+
+    //response that comes back will be JSON
+    //need to manipulate this data - turn it into array from JSON
     dispatch(fetchStudents(arrayOfStudentsFromAPI))
 }
 
 export const removeStudentThunk = (id) => (dispatch) => {
+
+    //try catch for response from backend - dispatch if successful and if response from backend is error or undefined, then catch
     let resolvedActionObject = removeStudent(id); 
     dispatch(resolvedActionObject);
 }

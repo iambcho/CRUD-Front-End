@@ -122,7 +122,7 @@ export default (state = [], action) => {
                         campusName: action.payload.campusName,
                         campusLocation: action.payload.campusLocation,
                         campusDescription: action.payload.campusDescription,
-                        imageUrl: action.payload.imageUrl
+                        imageURL: action.payload.imageURL
                         }
                     } 
                     else return campus;
@@ -135,7 +135,7 @@ export default (state = [], action) => {
                         campusName: action.payload.campusName,
                         campusLocation: action.payload.campusLocation,
                         campusDescription: action.payload.campusDescription,
-                        imageUrl: action.payload.imageUrl
+                        imageURL: action.payload.imageURL
                         }
                     } 
                     else return campus;

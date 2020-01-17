@@ -110,24 +110,13 @@ const editStudent = (student) => {
 
 
 export const fetchStudentsThunk = () => (dispatch) => {
-    //make axios call let data = my axios call here
-    console.log("IN FETCH STUDENTS");
+    
     axios.get("http://localhost:1234/api/students/")
 	.then((response) => {
         console.log(response.data);
-        dispatch(fetchStudents(response.data));
-        // for(let i = 0; i < response.data.length; i++) {
-        //     studentsArray.push(response.data[i]);
-        // }
-        // studentsArray = response.data;
+        dispatch(fetchStudents(response.data));       
 	    })
-        // .then ((error) => {
-		// console.log(error);
-	    // });
 
-    //response that comes back will be JSON
-    //need to manipulate this data - turn it into array from JSON
-   
     
 }
 

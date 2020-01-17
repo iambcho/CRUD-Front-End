@@ -1,4 +1,3 @@
-import axios from 'axios';
 let arrayOfStudentsFromAPI = [
     {
     "id": 4,
@@ -105,19 +104,27 @@ const editStudent = (student) => {
         -sometimes need to make edits that affect back and front end:
             -e.g., remove 
                 -need to delete it on the backend in the router using express
-                - and then send back a response to the frontend that it was deleted so that you can delete it from the front end state (FE, BE - two separate servers)
+                - and then send back a response to the frontend that it was deleted so that you can delete it from the front end state
 */
-
-
 export const fetchStudentsThunk = () => (dispatch) => {
-    
-    axios.get("http://localhost:1234/api/students/")
-	.then((response) => {
-        console.log(response.data);
-        dispatch(fetchStudents(response.data));       
-	    })
+    //make axios call let data = my axios call here
 
+    // axios.get("/students"+(this.state.searchInput)+"&api_key=tgqggOWqq0zq6uSC0AwgK5fsUMjchVwr")
+	// .then((response) => {
+	// 	this.setState({gifs: response.data["data"], state:"searching"});
+	// 	this.state.gifs.forEach((element) => {
+	// 		console.log(element.rating)
+	// 	    }
+	// 	    );
+	//     })
+    //     .then((error) => {
+	// 	console.log(error);
+	//     });
+    // };
     
+    //response that comes back will be JSON
+    //need to manipulate this data - turn it into array from JSON
+    dispatch(fetchStudents(arrayOfStudentsFromAPI))
 }
 
 export const removeStudentThunk = (id) => (dispatch) => {

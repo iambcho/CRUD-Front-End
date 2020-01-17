@@ -116,7 +116,7 @@ export const fetchStudentsThunk = () => (dispatch) => {
         console.log(response.data);
         dispatch(fetchStudents(response.data));       
 	    })
-
+ 
     
 }
 

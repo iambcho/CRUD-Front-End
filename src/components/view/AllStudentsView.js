@@ -46,7 +46,7 @@ const AllStudentsView = (props) => {
                                     <div className="close-out"><button onClick={() => removeStudent(student.id)}>x</button></div>                                   
                                     <img src={student.imageUrl} width="80" height="80" alt = "not found"></img>
                                     <p>{student.firstName} {student.lastName}</p>
-                                    <p>Campus Name</p>
+                                    
                                     <Link to={`/single_student/${student.id}`} ><div>Select Student</div></Link>
                                 </div>)
                         }

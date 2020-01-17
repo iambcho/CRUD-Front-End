@@ -107,22 +107,28 @@ const editStudent = (student) => {
                 -need to delete it on the backend in the router using express
                 - and then send back a response to the frontend that it was deleted so that you can delete it from the front end state (FE, BE - two separate servers)
 */
+
+
 export const fetchStudentsThunk = () => (dispatch) => {
     //make axios call let data = my axios call here
     console.log("IN FETCH STUDENTS");
     axios.get("http://localhost:1234/api/students/")
 	.then((response) => {
-		console.log(response);
-		    // }
-		    // );
+        console.log(response.data);
+        dispatch(fetchStudents(response.data));
+        // for(let i = 0; i < response.data.length; i++) {
+        //     studentsArray.push(response.data[i]);
+        // }
+        // studentsArray = response.data;
 	    })
-        .then((error) => {
-		console.log(error);
-	    });
+        // .then ((error) => {
+		// console.log(error);
+	    // });
 
     //response that comes back will be JSON
     //need to manipulate this data - turn it into array from JSON
-    dispatch(fetchStudents(arrayOfStudentsFromAPI))
+   
+    
 }
 
 export const removeStudentThunk = (id) => (dispatch) => {
